@@ -1,0 +1,6146 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sen Mar 21 10:13:40 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect as sysdba
+Enter user-name: admin
+Enter password:
+Connected.
+SQL> select * from all_users
+  2  ;
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+COBA1                                  86 19-03-2022
+PROCEDURE                              85 19-03-2022
+KOS                                    84 18-01-2022
+UASLUTFI3C2021                         83 03-01-2022
+LUTFI                                  82 03-01-2022
+COBA11                                 78 02-01-2022
+COBAA                                  77 02-01-2022
+MALAMSENIN                             74 02-01-2022
+COBA                                   75 02-01-2022
+PAGI                                   62 13-12-2021
+UTS                                    58 10-11-2021
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+CHINDI                                 57 10-11-2021
+RAJU                                   56 09-11-2021
+EKA                                    55 07-11-2021
+KRS                                    54 06-11-2021
+TUGAS                                  51 03-11-2021
+VIKRI                                  61 11-11-2021
+APEX_040000                            47 29-05-2014
+APEX_PUBLIC_USER                       45 29-05-2014
+FLOWS_FILES                            44 29-05-2014
+HR                                     43 29-05-2014
+MDSYS                                  42 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+XS$NULL                        2147483638 29-05-2014
+MALAM                                  79 02-01-2022
+ANONYMOUS                              35 29-05-2014
+XDB                                    34 29-05-2014
+CTXSYS                                 32 29-05-2014
+APPQOSSYS                              30 29-05-2014
+DBSNMP                                 29 29-05-2014
+ORACLE_OCM                             21 29-05-2014
+DIP                                    14 29-05-2014
+OUTLN                                   9 29-05-2014
+SYSTEM                                  5 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+SYS                                     0 29-05-2014
+
+34 rows selected.
+
+SQL> connect coba1
+Enter password:
+Connected.
+SQL> SELECT object_id, object_name, object_type FROM user_procedures;
+
+ OBJECT_ID
+----------
+OBJECT_NAME
+--------------------------------------------------------------------------------
+OBJECT_TYPE
+-------------------
+     25279
+LUAS_SEGITIGA
+PROCEDURE
+
+     25278
+KELILING_LINGKARAN
+PROCEDURE
+
+ OBJECT_ID
+----------
+OBJECT_NAME
+--------------------------------------------------------------------------------
+OBJECT_TYPE
+-------------------
+
+     25280
+KELILING_SEGITIGA
+PROCEDURE
+
+
+SQL> EXECUTE KELILING_LINGKARAN
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> EXECUTE KELILING_LINGKARAN
+KELILING LINGKARAN ADALAH= 12,56
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     V_NAME VARCHAR2(25) := 'AJI';
+  3     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  4  BEGIN
+  5     DBMS_OUTPUT.PUT_LINE ('NAMA ORANGTUA ADALAH' ||' '||V_NAME);
+  6     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANGTUA ADALAH' ||' '||V_PEKERJAAN);
+  7     DECLARE
+  8             V_NAME VARCHAR2(25) := 'BAYU';
+  9             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 10     BEGIN
+ 11             DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 12             DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 13     END;
+ 14* END;
+ 15  /
+NAMA ORANGTUA ADALAH AJI
+PEKERJAAN ORANGTUA ADALAH PNS
+NAMA ANAK ADALAH BAYU
+PEKERJAAN ANAK ADALAH PELAJAR
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  <<orgtua>>
+  2  DECLARE
+  3     V_NAME VARCHAR2(25) := 'AJI';
+  4     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  5  BEGIN
+  6     DECLARE
+  7             V_NAME VARCHAR2(25) := 'BAYU';
+  8             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+  9     BEGIN
+ 10             DBMS_OUTPUT.PUT_LINE ('NAMA ORANGTUA ADALAH' ||' '||orgtua.V_NAME);
+ 11             DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANGTUA ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 12             DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 13             DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 14     END;
+ 15* END;
+SQL> /
+NAMA ORANGTUA ADALAH AJI
+PEKERJAAN ORANGTUA ADALAH PNS
+NAMA ANAK ADALAH BAYU
+PEKERJAAN ANAK ADALAH PELAJAR
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  <<orgtua>>
+  2  DECLARE
+  3     V_NAME VARCHAR2(25) := 'AJI';
+  4     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  5  BEGIN
+  6     DECLARE
+  7             V_NAME VARCHAR2(25) := 'BAYU';
+  8             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+  9     BEGIN
+ 10             DBMS_OUTPUT.PUT_LINE ('NAMA ORANGTUA ADALAH' ||' '||ORGTUA.V_NAME);
+ 11             DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANGTUA ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 12             DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 13             DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 14     END;
+ 15* END;
+SQL> /
+NAMA ORANGTUA ADALAH AJI
+PEKERJAAN ORANGTUA ADALAH PNS
+NAMA ANAK ADALAH BAYU
+PEKERJAAN ANAK ADALAH PELAJAR
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  <<orgtua>>
+  2  DECLARE
+  3     V_NAME VARCHAR2(25) := 'AJI';
+  4     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  5  BEGIN
+  6     <<ANAK>>
+  7     DECLARE
+  8             V_NAME VARCHAR2(25) := 'BAYU';
+  9             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 10     BEGIN
+ 11             <<CUCU>>
+ 12             DECLARE
+ 13                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 14                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 15             BEGIN
+ 16                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 17                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 18                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 19                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 20                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 21                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 22             END;
+ 23     END;
+ 24* END;
+SQL> /
+NAMA DATUK ADALAH AJI
+PEKERJAAN DATUK ADALAH PNS
+NAMA ORANG TUA ADALAH BAYU
+PEKERJAAN ORANG TUA ADALAH PELAJAR
+NAMA ANAK ADALAH PERMADI
+PEKERJAAN ANAK ADALAH BELUM BEKERJA
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  <<orgtua>>
+  2  DECLARE
+  3     V_NAME VARCHAR2(25) := 'AJI';
+  4     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  5  BEGIN
+  6     <<ANAK>>
+  7     DECLARE
+  8             V_NAME VARCHAR2(25) := 'BAYU';
+  9             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 10     BEGIN
+ 11             <<CUCU>>
+ 12             DECLARE
+ 13                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 14                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 15             BEGIN
+ 16                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 17                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 18                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 19                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 20                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 21                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 22             END;
+ 23     END;
+ 24     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||cucu.V_PEKERJAAN);
+ 25* END;
+SQL> /
+        DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||cucu.V_PEKERJAAN);
+                                                             *
+ERROR at line 24:
+ORA-06550: line 24, column 55:
+PLS-00201: identifier 'CUCU.V_PEKERJAAN' must be declared
+ORA-06550: line 24, column 2:
+PL/SQL: Statement ignored
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  <<orgtua>>
+  2  DECLARE
+  3     V_NAME VARCHAR2(25) := 'AJI';
+  4     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  5  BEGIN
+  6     <<ANAK>>
+  7     DECLARE
+  8             V_NAME VARCHAR2(25) := 'BAYU';
+  9             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 10     BEGIN
+ 11             <<CUCU>>
+ 12             DECLARE
+ 13                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 14                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 15             BEGIN
+ 16                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 17                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 18                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 19                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 20                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 21                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 22             END;
+ 23     END;
+ 24* END;
+SQL> /
+NAMA DATUK ADALAH AJI
+PEKERJAAN DATUK ADALAH PNS
+NAMA ORANG TUA ADALAH BAYU
+PEKERJAAN ORANG TUA ADALAH PELAJAR
+NAMA ANAK ADALAH PERMADI
+PEKERJAAN ANAK ADALAH BELUM BEKERJA
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  --blok induk
+  2  <<orgtua>>
+  3  DECLARE
+  4     V_NAME VARCHAR2(25) := 'AJI';
+  5     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  6  BEGIN
+  7  --blok anak
+  8     <<ANAK>>
+  9     DECLARE
+ 10             V_NAME VARCHAR2(25) := 'BAYU';
+ 11             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 12     BEGIN
+ 13     --blok anak dari blok ANAK
+ 14             <<CUCU>>
+ 15             DECLARE
+ 16                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 17                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 18             BEGIN
+ 19                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 20                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 21                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 22                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 23                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 24                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 25             END;
+ 26     END;
+ 27* END;
+SQL> /
+NAMA DATUK ADALAH AJI
+PEKERJAAN DATUK ADALAH PNS
+NAMA ORANG TUA ADALAH BAYU
+PEKERJAAN ORANG TUA ADALAH PELAJAR
+NAMA ANAK ADALAH PERMADI
+PEKERJAAN ANAK ADALAH BELUM BEKERJA
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  --blok induk
+  2  <<orgtua>>
+  3  DECLARE
+  4     V_NAME VARCHAR2(25) := 'AJI';
+  5     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  6  BEGIN
+  7  --blok anak
+  8     <<ANAK>>
+  9     CREATE PROCEDURE AJI AS;
+ 10             V_NAME VARCHAR2(25) := 'BAYU';
+ 11             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 12     BEGIN
+ 13     --blok anak dari blok ANAK
+ 14             <<CUCU>>
+ 15             DECLARE
+ 16                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 17                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 18             BEGIN
+ 19                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 20                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 21                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 22                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 23                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 24                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 25             END;
+ 26     END;
+ 27* END;
+SQL> /
+        CREATE PROCEDURE AJI AS;
+        *
+ERROR at line 9:
+ORA-06550: line 9, column 2:
+PLS-00103: Encountered the symbol "CREATE" when expecting one of the following:
+( begin case declare exit for goto if loop mod null raise
+return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> <<
+continue close current delete fetch lock insert open rollback
+savepoint set sql execute commit forall merge pipe purge
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  --blok induk
+  2  <<orgtua>>
+  3  DECLARE
+  4     V_NAME VARCHAR2(25) := 'AJI';
+  5     V_PEKERJAAN VARCHAR2(25) := 'PNS';
+  6  BEGIN
+  7  --blok anak
+  8     <<ANAK>>
+  9     DECLARE
+ 10             V_NAME VARCHAR2(25) := 'BAYU';
+ 11             V_PEKERJAAN VARCHAR2(25) := 'PELAJAR';
+ 12     BEGIN
+ 13     --blok anak dari blok ANAK
+ 14             <<CUCU>>
+ 15             DECLARE
+ 16                     V_NAME VARCHAR2(25) := 'PERMADI';
+ 17                     V_PEKERJAAN VARCHAR2(25) := 'BELUM BEKERJA';
+ 18             BEGIN
+ 19                     DBMS_OUTPUT.PUT_LINE ('NAMA DATUK ADALAH' ||' '||ORGTUA.V_NAME);
+ 20                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN DATUK ADALAH' ||' '||orgtua.V_PEKERJAAN);
+ 21                     DBMS_OUTPUT.PUT_LINE ('NAMA ORANG TUA ADALAH' ||' '||ANAK.V_NAME);
+ 22                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ORANG TUA ADALAH' ||' '||ANAK.V_PEKERJAAN);
+ 23                     DBMS_OUTPUT.PUT_LINE ('NAMA ANAK ADALAH' ||' '||V_NAME);
+ 24                     DBMS_OUTPUT.PUT_LINE ('PEKERJAAN ANAK ADALAH' ||' '||V_PEKERJAAN);
+ 25             END;
+ 26     END;
+ 27* END;
+SQL> /
+NAMA DATUK ADALAH AJI
+PEKERJAAN DATUK ADALAH PNS
+NAMA ORANG TUA ADALAH BAYU
+PEKERJAAN ORANG TUA ADALAH PELAJAR
+NAMA ANAK ADALAH PERMADI
+PEKERJAAN ANAK ADALAH BELUM BEKERJA
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+SP2-0223: No lines in SQL buffer.
+SQL> ED
+SP2-0107: Nothing to save.
+SQL> ED
+SP2-0107: Nothing to save.
+SQL> SHOW USER
+USER is "COBA1"
+SQL> ED
+SP2-0107: Nothing to save.
+SQL> SELECT * FROM TAB;
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real;
+  3  BEGIN
+  4     IF v_ip >= 3 THEN
+  5             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 24');
+  6     ELSIF v_ip >= 2.7 THEN
+  7             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 21');
+  8     ELSIF v_ip >= 2.5 THEN
+  9             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 18');
+ 10     ELSEIF v_ip >= 2 THEN
+ 11             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 15');
+ 12     ELSE
+ 13             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 12');
+ 14     END IF;
+ 15* END;
+SQL> /
+        ELSEIF v_ip >= 2 THEN
+               *
+ERROR at line 10:
+ORA-06550: line 10, column 9:
+PLS-00103: Encountered the symbol "V_IP" when expecting one of the following:
+:= . ( @ % ;
+ORA-06550: line 15, column 4:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+if
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real;
+  3  BEGIN
+  4     IF v_ip >= 3 THEN
+  5             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 24');
+  6     ELSIF v_ip >= 2.7 THEN
+  7             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 21');
+  8     ELSIF v_ip >= 2.5 THEN
+  9             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 18');
+ 10     ELSIF v_ip >= 2 THEN
+ 11             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 15');
+ 12     ELSE
+ 13             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 12');
+ 14     END IF;
+ 15* END;
+SQL> /
+SKS MAKS ADALAH = 12
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     IF v_ip >= 3 THEN
+  5             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 24');
+  6     ELSIF v_ip >= 2.7 THEN
+  7             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 21');
+  8     ELSIF v_ip >= 2.5 THEN
+  9             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 18');
+ 10     ELSIF v_ip >= 2 THEN
+ 11             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 15');
+ 12     ELSE
+ 13             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 12');
+ 14     END IF;
+ 15* END;
+SQL> /
+SKS MAKS ADALAH = 24
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     IF v_ip >= 3 THEN
+  5             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 24');
+  6     ELSIF v_ip >= 2.7 THEN
+  7             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 21');
+  8     ELSIF v_ip >= 2.5 THEN
+  9             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 18');
+ 10     ELSIF v_ip >= 2 THEN
+ 11             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 15');
+ 12     ELSE
+ 13             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 12');
+ 14     END IF;
+ 15* END;
+SQL> ;
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     IF v_ip >= 3 THEN
+  5             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 24');
+  6     ELSIF v_ip >= 2.7 THEN
+  7             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 21');
+  8     ELSIF v_ip >= 2.5 THEN
+  9             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 18');
+ 10     ELSIF v_ip >= 2 THEN
+ 11             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 15');
+ 12     ELSE
+ 13             DBMS_OUTPUT.PUT_LINE ('SKS MAKS ADALAH = 12');
+ 14     END IF;
+ 15* END;
+SQL> /
+SKS MAKS ADALAH = 24
+
+PL/SQL procedure successfully completed.
+
+SQL> @d:/SQL_Schema1.sql;
+DROP TABLE f_shift_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_shifts
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_order_lines
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_orders
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_staffs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_food_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_regular_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_promotional_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_customers
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_track_listings
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_play_list_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_songs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_types
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_job_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_partners
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_events
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_venues
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_themes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_packages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_clients
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_cds
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+ALTER TABLE DEPARTMENTS DROP CONSTRAINT "DEPT_MGR_FK"
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_grades
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_history
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE employees
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE jobs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE departments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE locations
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE countries
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE regions
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE wf_spoken_languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE wf_languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE wf_countries
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE wf_world_regions
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE wf_currencies
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+Enter value for b: a
+old   2: VALUES(94,'Carpe Diem','R & B Inc.','2000')
+new   2: VALUES(94,'Carpe Diem','R a Inc.','2000')
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table altered.
+
+
+View created.
+
+DROP SEQUENCE "DEPARTMENTS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "EMPLOYEES_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "LOCATIONS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+
+Sequence created.
+
+
+Sequence created.
+
+
+Sequence created.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+COUNTRIES                      TABLE
+DEPARTMENTS                    TABLE
+D_CDS                          TABLE
+D_CLIENTS                      TABLE
+D_EVENTS                       TABLE
+D_JOB_ASSIGNMENTS              TABLE
+D_PACKAGES                     TABLE
+D_PARTNERS                     TABLE
+D_PLAY_LIST_ITEMS              TABLE
+D_SONGS                        TABLE
+D_THEMES                       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+D_TRACK_LISTINGS               TABLE
+D_TYPES                        TABLE
+D_VENUES                       TABLE
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+F_CUSTOMERS                    TABLE
+F_FOOD_ITEMS                   TABLE
+F_ORDERS                       TABLE
+F_ORDER_LINES                  TABLE
+F_PROMOTIONAL_MENUS            TABLE
+F_REGULAR_MENUS                TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+F_SHIFTS                       TABLE
+F_SHIFT_ASSIGNMENTS            TABLE
+F_STAFFS                       TABLE
+JOBS                           TABLE
+JOB_GRADES                     TABLE
+JOB_HISTORY                    TABLE
+LOCATIONS                      TABLE
+REGIONS                        TABLE
+WF_COUNTRIES                   TABLE
+WF_CURRENCIES                  TABLE
+WF_LANGUAGES                   TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+WF_SPOKEN_LANGUAGES            TABLE
+WF_WORLD_REGIONS               TABLE
+
+35 rows selected.
+
+SQL> select * from employees;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        100 Steven               King
+SKING                     515.123.4567         17-06-1987 AD_PRES         24000
+                                     90
+
+        101 Neena                Kochhar
+NKOCHHAR                  515.123.4568         21-09-1989 AD_VP           17000
+                      100            90
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        102 Lex                  De Haan
+LDEHAAN                   515.123.4569         13-01-1993 AD_VP           17000
+                      100            90
+
+        200 Jennifer             Whalen
+JWHALEN                   515.123.4444         17-09-1987 AD_ASST          4400
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      101            10
+
+        205 Shelley              Higgins
+SHIGGINS                  515.123.8080         07-06-1994 AC_MGR          12000
+                      101           110
+
+        206 William              Gietz
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+WGIETZ                    515.123.8181         07-06-1994 AC_ACCOUNT       8300
+                      205           110
+
+        149 Eleni                Zlotkey
+EZLOTKEY                  011.44.1344.429018   29-01-2000 SA_MAN          10500
+            ,2        100            80 1500
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        174 Ellen                Abel
+EABEL                     011.44.1644.429267   11-05-1996 SA_REP          11000
+            ,3        149            80 1700
+
+        176 Jonathon             Taylor
+JTAYLOR                   011.44.1644.429265   24-03-1998 SA_REP           8600
+            ,2        149            80 1250
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        178 Kimberely            Grant
+KGRANT                    011.44.1644.429263   24-05-1999 SA_REP           7000
+           ,15        149
+
+        124 Kevin                Mourgos
+KMOURGOS                  650.123.5234         16-11-1999 ST_MAN           5800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      100            50
+
+        141 Trenna               Rajs
+TRAJS                     650.121.8009         17-10-1995 ST_CLERK         3500
+                      124            50
+
+        142 Curtis               Davies
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+CDAVIES                   650.121.2994         29-01-1997 ST_CLERK         3100
+                      124            50
+
+        143 Randall              Matos
+RMATOS                    650.121.2874         15-03-1998 ST_CLERK         2600
+                      124            50
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        144 Peter                Vargas
+PVARGAS                   650.121.2004         09-07-1998 ST_CLERK         2500
+                      124            50
+
+        103 Alexander            Hunold
+AHUNOLD                   590.423.4567         03-01-1990 IT_PROG          9000
+                      102            60
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        104 Bruce                Ernst
+BERNST                    590.423.4568         21-05-1991 IT_PROG          6000
+                      103            60
+
+        107 Diana                Lorentz
+DLORENTZ                  590.423.5567         07-02-1999 IT_PROG          4200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      103            60
+
+        201 Michael              Hartstein
+MHARTSTE                  515.123.5555         17-02-1996 MK_MAN          13000
+                      100            20
+
+        202 Pat                  Fay
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+PFAY                      603.123.6666         17-08-1997 MK_REP           6000
+                      201            20
+
+
+20 rows selected.
+
+SQL> desc emplotees
+ERROR:
+ORA-04043: object emplotees does not exist
+
+
+SQL> desc employees
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+ BONUS                                              VARCHAR2(5)
+
+SQL> select FIRST_NAME, SALARY, HIRE_DATE FROM EMPLOYEES ORDER BY SALARY;
+
+FIRST_NAME               SALARY HIRE_DATE
+-------------------- ---------- ----------
+Peter                      2500 09-07-1998
+Randall                    2600 15-03-1998
+Curtis                     3100 29-01-1997
+Trenna                     3500 17-10-1995
+Diana                      4200 07-02-1999
+Jennifer                   4400 17-09-1987
+Kevin                      5800 16-11-1999
+Pat                        6000 17-08-1997
+Bruce                      6000 21-05-1991
+Kimberely                  7000 24-05-1999
+William                    8300 07-06-1994
+
+FIRST_NAME               SALARY HIRE_DATE
+-------------------- ---------- ----------
+Jonathon                   8600 24-03-1998
+Alexander                  9000 03-01-1990
+Eleni                     10500 29-01-2000
+Ellen                     11000 11-05-1996
+Shelley                   12000 07-06-1994
+Michael                   13000 17-02-1996
+Neena                     17000 21-09-1989
+Lex                       17000 13-01-1993
+Steven                    24000 17-06-1987
+
+20 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> /
+BEGIN
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1:
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+ORA-06550: line 5, column 7:
+PLS-00103: Encountered the symbol "FROM" when expecting one of the following:
+mod <an identifier> <a double-quoted delimited-identifier>
+<a bind variable> continue current sql execute forall merge
+pipe purge
+The symbol "<an ident
+ORA-06550: line 5, column 36:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+. ( , * @ % & - + ; / at for mod remainder rem
+<an exponent (**)> asc desc || multiset
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> /
+BEGIN
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1:
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+ORA-06550: line 5, column 7:
+PLS-00103: Encountered the symbol "FROM" when expecting one of the following:
+mod <an identifier> <a double-quoted delimited-identifier>
+<a bind variable> continue current sql execute forall merge
+pipe purge
+The symbol "<an ident
+ORA-06550: line 5, column 36:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+. ( , * @ % & - + ; / at for mod remainder rem
+<an exponent (**)> asc desc || multiset
+
+
+SQL> define editor = 'visual studio code'
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> define _editor=visual studio code
+SQL> ed
+Wrote file afiedt.buf
+'visual' is not recognized as an internal or external command,
+operable program or batch file.
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> /
+BEGIN
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1:
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+ORA-06550: line 5, column 7:
+PLS-00103: Encountered the symbol "FROM" when expecting one of the following:
+mod <an identifier> <a double-quoted delimited-identifier>
+<a bind variable> continue current sql execute forall merge
+pipe purge
+The symbol "<an ident
+ORA-06550: line 5, column 36:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+. ( , * @ % & - + ; / at for mod remainder rem
+<an exponent (**)> asc desc || multiset
+
+
+SQL> ed
+Wrote file afiedt.buf
+'visual' is not recognized as an internal or external command,
+operable program or batch file.
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> code
+SP2-0042: unknown command "code" - rest of line ignored.
+SQL> define _editor=code
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> /
+BEGIN
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1:
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+ORA-06550: line 5, column 7:
+PLS-00103: Encountered the symbol "FROM" when expecting one of the following:
+mod <an identifier> <a double-quoted delimited-identifier>
+<a bind variable> continue current sql execute forall merge
+pipe purge
+The symbol "<an ident
+ORA-06550: line 5, column 36:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+. ( , * @ % & - + ; / at for mod remainder rem
+<an exponent (**)> asc desc || multiset
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5*    INTO FROM EMPLOYEES ORDER BY SALARY
+SQL> define _editor=notepad
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname, v_sal, v_hdate
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5     INTO v_fname, v_sal, v_hdate
+  6     FROM EMPLOYEES
+  7     WHERE lower(first_name) = 'kevin'
+  8             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+  9                     DBMS_OUTPUT.PUT_LINE('STAFF')
+ 10             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR')
+ 12             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-98') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR')
+ 14             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('MANAGER JUNIOR')
+ 16             ELSE
+ 17*                    DBMS_OUTPUT.PUT_LINE('STAFF')
+ 18  /
+        v_fname, v_sal, v_hdate
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 9:
+PLS-00103: Encountered the symbol "," when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+
+
+SQL> select FIRST_NAME, SALARY, HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE;
+
+FIRST_NAME               SALARY HIRE_DATE
+-------------------- ---------- ----------
+Steven                    24000 17-06-1987
+Jennifer                   4400 17-09-1987
+Neena                     17000 21-09-1989
+Alexander                  9000 03-01-1990
+Bruce                      6000 21-05-1991
+Lex                       17000 13-01-1993
+William                    8300 07-06-1994
+Shelley                   12000 07-06-1994
+Trenna                     3500 17-10-1995
+Michael                   13000 17-02-1996
+Ellen                     11000 11-05-1996
+
+FIRST_NAME               SALARY HIRE_DATE
+-------------------- ---------- ----------
+Curtis                     3100 29-01-1997
+Pat                        6000 17-08-1997
+Randall                    2600 15-03-1998
+Jonathon                   8600 24-03-1998
+Peter                      2500 09-07-1998
+Diana                      4200 07-02-1999
+Kimberely                  7000 24-05-1999
+Kevin                      5800 16-11-1999
+Eleni                     10500 29-01-2000
+
+20 rows selected.
+
+SQL> /ED
+SP2-0042: unknown command "/ED" - rest of line ignored.
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname, v_sal, v_hdate
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5     INTO v_fname, v_sal, v_hdate
+  6     FROM EMPLOYEES
+  7     WHERE lower(first_name) = 'kevin'
+  8             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+  9                     DBMS_OUTPUT.PUT_LINE('STAFF')
+ 10             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR')
+ 12             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-98') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR')
+ 14             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('MANAGER JUNIOR')
+ 16             ELSE
+ 17*                    DBMS_OUTPUT.PUT_LINE('STAFF')
+ 18  /
+        v_fname, v_sal, v_hdate
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 9:
+PLS-00103: Encountered the symbol "," when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+
+
+SQL> select FIRST_NAME, SALARY, HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE AND SALARY;
+select FIRST_NAME, SALARY, HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE AND SALARY
+                                                                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname, v_sal, v_hdate
+  3  BEGIN
+  4     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  5     INTO v_fname, v_sal, v_hdate
+  6     FROM EMPLOYEES
+  7     WHERE lower(first_name) = 'kevin'
+  8             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+  9                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 10             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 12             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 16             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('AJI');
+ 18             ELSE
+ 19                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 20*            END IF;
+ 21  /
+        v_fname, v_sal, v_hdate
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 9:
+PLS-00103: Encountered the symbol "," when expecting one of the following:
+constant exception <an identifier>
+<a double-quoted delimited-identifier> table long double ref
+char time timestamp interval date binary national character
+nchar
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname employees.first_name%TYPE;
+  3     v_sal employees.salary%TYPE;
+  4     v_hdate employees.hire_date%TYPE;
+  5  BEGIN
+  6     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  7     INTO v_fname, v_sal, v_hdate
+  8     FROM EMPLOYEES
+  9     WHERE lower(first_name) = 'kevin'
+ 10             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 12             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 16             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 18             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 19                     DBMS_OUTPUT.PUT_LINE('AJI');
+ 20             ELSE
+ 21                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 22*            END IF;
+SQL> /
+                IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+                *
+ERROR at line 10:
+ORA-06550: line 10, column 3:
+PL/SQL: ORA-00933: SQL command not properly ended
+ORA-06550: line 6, column 2:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 12, column 9:
+PLS-00103: Encountered the symbol "V_SAL" when expecting one of the following:
+:= . ( @ % ;
+The symbol ":=" was substituted for "V_SAL" to continue.
+ORA-06550: line 12, column 51:
+PLS-00103: Encountered the symbol "THEN" when expecting one of the following:
+* & - + ; / at mod remainder rem <an exponent (**)> and or ||
+multiset year day
+ORA-06550: line 14, column 9:
+PLS-00103: Encountered the symbol "V_SAL" when expecting one of the following:
+:= . ( @ % ;
+The symbol ":=" was substituted for "V_SAL" to continue.
+ORA-06550: line 14, column 51:
+PLS-00103: Encountered the symbol "THEN" when expecting one of the following:
+* & - + ; / at mod remainder rem <an exponent (**)> and or ||
+multiset year day
+ORA-06550: line 16, column 9:
+PLS-00103: Encountered the symbol "V_SAL" when expecting one of the following:
+:= . ( @ % ;
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname employees.first_name%TYPE;
+  3     v_sal employees.salary%TYPE;
+  4     v_hdate employees.hire_date%TYPE;
+  5  BEGIN
+  6     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  7     INTO v_fname, v_sal, v_hdate
+  8     FROM EMPLOYEES
+  9     WHERE lower(first_name) = 'kevin' ORDER BY SALARY;
+ 10             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 12             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 16             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 18             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 19                     DBMS_OUTPUT.PUT_LINE('AJI');
+ 20             ELSE
+ 21                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 22*            END IF;
+SQL> /
+                END IF;
+                      *
+ERROR at line 22:
+ORA-06550: line 22, column 9:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+( begin case declare end exception exit for goto if loop mod
+null pragma raise return select update while with
+<an identifier> <a double-quoted delimited-identifier>
+<a bind variable> << continue close current delete fetch lock
+insert open rollback savepoint set sql execute commit forall
+merge pipe purge
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname employees.first_name%TYPE;
+  3     v_sal employees.salary%TYPE;
+  4     v_hdate employees.hire_date%TYPE;
+  5  BEGIN
+  6     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  7     INTO v_fname, v_sal, v_hdate
+  8     FROM EMPLOYEES
+  9     WHERE lower(first_name) = 'kevin' ORDER BY SALARY;
+ 10             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 12             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 16             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 18             ELSIF v_sal <= 10000 and v_hdate < ('01-JAN-98') THEN
+ 19                     DBMS_OUTPUT.PUT_LINE('AJI');
+ 20             ELSE
+ 21                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 22             END IF;
+ 23* END;
+SQL> /
+DAKTAU
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname employees.first_name%TYPE;
+  3     v_sal employees.salary%TYPE;
+  4     v_hdate employees.hire_date%TYPE;
+  5  BEGIN
+  6     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  7     INTO v_fname, v_sal, v_hdate
+  8     FROM EMPLOYEES
+  9     WHERE lower(first_name) = 'kevin' ORDER BY SALARY;
+ 10             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 12             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 16             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-99') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 18             ELSIF v_sal <= 10000 THEN
+ 19                     DBMS_OUTPUT.PUT_LINE('MANAGER');
+ 20             ELSE
+ 21                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 22             END IF;
+ 23* END;
+SQL> /
+MANAGER
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_fname employees.first_name%TYPE;
+  3     v_sal employees.salary%TYPE;
+  4     v_hdate employees.hire_date%TYPE;
+  5  BEGIN
+  6     SELECT FIRST_NAME, SALARY, HIRE_DATE
+  7     INTO v_fname, v_sal, v_hdate
+  8     FROM EMPLOYEES
+  9     WHERE lower(first_name) = 'kevin' ORDER BY SALARY;
+ 10             IF v_sal <= 4000 and v_hdate < ('01-JAN-98') THEN
+ 11                     DBMS_OUTPUT.PUT_LINE('STAFF');
+ 12             ELSIF v_sal <= 4000 and v_hdate < ('01-JAN-99') THEN
+ 13                     DBMS_OUTPUT.PUT_LINE('STAFF SENIOR');
+ 14             ELSIF v_sal <= 6000 and v_hdate < ('01-JAN-94') THEN
+ 15                     DBMS_OUTPUT.PUT_LINE('JUNIOR LEADER');
+ 16             ELSIF v_sal <= 6000 and v_hdate < ('01-DEC-99') THEN
+ 17                     DBMS_OUTPUT.PUT_LINE('SENIOR LEADER');
+ 18             ELSIF v_sal <= 10000 THEN
+ 19                     DBMS_OUTPUT.PUT_LINE('MANAGER');
+ 20             ELSE
+ 21                     DBMS_OUTPUT.PUT_LINE('DAKTAU');
+ 22             END IF;
+ 23* END;
+SQL> /
+        SELECT FIRST_NAME, SALARY, HIRE_DATE
+                       *
+ERROR at line 6:
+ORA-01858: a non-numeric character was found where a numeric was expected
+ORA-06512: at line 16
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     CASE
+  5             WHEN v_ip <= 3 THEN
+  6                     DBMS_OUTPUT.PUT_LINE ('24');
+  7     END CASE;
+  8* END;
+SQL> /
+24
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     CASE v_ip
+  5             WHEN <= 3 THEN
+  6                     DBMS_OUTPUT.PUT_LINE ('24');
+  7     END CASE;
+  8* END;
+SQL> /
+                WHEN <= 3 THEN
+                     *
+ERROR at line 5:
+ORA-06550: line 5, column 8:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+( - + case mod new not null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable>
+continue avg count current exists max min prior sql stddev
+sum variance execute forall merge time timestamp interval
+date <a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     CASE v_ip
+  5             WHEN <= 3 THEN
+  6                     DBMS_OUTPUT.PUT_LINE ('24');
+  7     END CASE;
+  8* END;
+SQL> /
+                WHEN <= 3 THEN
+                     *
+ERROR at line 5:
+ORA-06550: line 5, column 8:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+( - + case mod new not null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable>
+continue avg count current exists max min prior sql stddev
+sum variance execute forall merge time timestamp interval
+date <a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_ip real := 3;
+  3  BEGIN
+  4     CASE
+  5             WHEN v_ip <= 3 THEN
+  6                     DBMS_OUTPUT.PUT_LINE ('24');
+  7     END CASE;
+  8* END;
+SQL> /
+24
+
+PL/SQL procedure successfully completed.
+
+SQL>

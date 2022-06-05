@@ -1,0 +1,14 @@
+CREATE PROCEDURE tambahdepartment IS
+    v_dept_id departments.department_id%TYPE := 200;
+    v_dept_name departments.department_name%TYPE := 'Kang Coding';
+    v_manager_id departments.manager_id%TYPE :=200;
+    v_location_id departments.location_id%TYPE :=1700;
+BEGIN
+    INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id)
+    VALUES (v_dept_id, v_dept_name, v_manager_id, v_location_id);
+    DBMS_OUTPUT.PUT_LINE('DEPT ID = ' ||' '|| v_dept_id);
+    DBMS_OUTPUT.PUT_LINE('DEPT NAME = ' ||' '|| v_dept_name);
+    DBMS_OUTPUT.PUT_LINE('MANAGER ID = ' ||' '|| v_manager_id);
+    DBMS_OUTPUT.PUT_LINE('LOCATION ID = ' ||' '|| v_location_id);
+END;
+/

@@ -1,0 +1,9 @@
+DECLARE
+    v_emp_record employees%ROWTYPE;
+BEGIN
+    SELECT * INTO v_emp_record
+    FROM employees
+    WHERE employee_id = 100;
+    DBMS_OUTPUT.PUT_LINE(v_emp_record.first_name||' ' ||v_emp_record.email||' '||v_emp_record.salary||' '||v_emp_record.department_id);
+END;
+/

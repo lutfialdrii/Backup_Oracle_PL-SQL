@@ -1,0 +1,5 @@
+CREATE OR REPLACE PROCEDURE edit_gaji (p_emp copy_employees.employee_id%type, bonus number) AS
+BEGIN
+    update copy_employees set salary = salary + salary * (bonus/100)
+    where employee_id = p_emp;
+END;

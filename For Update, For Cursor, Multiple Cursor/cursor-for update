@@ -1,0 +1,13 @@
+DECLARE
+    CURSOR cur_employees IS
+        SELECT employee_id,first_name, salary
+        FROM employees
+        FOR UPDATE OF salary;
+BEGIN
+    FOR i IN cur_employees LOOP
+        UPDATE employees
+        SET salary = i.salary * 1.01
+        WHERE CURRENT OF cur_employees;
+    END LOOP;
+END;
+/

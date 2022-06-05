@@ -1,0 +1,14 @@
+CREATE OR REPLACE PROCEDURE tambahdepartment IS
+    v_dept_id departments.department_id%TYPE := 200;
+    v_dept_name departments.department_name%TYPE := 'Informatika UIN';
+    v_manager_id departments.manager_id%TYPE :=200;
+    v_location_id departments.location_id%TYPE :=1700;
+BEGIN
+    UPDATE DEPARTMENTS SET department_name = v_dept_name WHERE
+    department_id = v_dept_id;
+    DBMS_OUTPUT.PUT_LINE('DEPT ID = ' ||' '|| v_dept_id);
+    DBMS_OUTPUT.PUT_LINE('DEPT NAME = ' ||' '|| v_dept_name);
+    DBMS_OUTPUT.PUT_LINE('MANAGER ID = ' ||' '|| v_manager_id);
+    DBMS_OUTPUT.PUT_LINE('LOCATION ID = ' ||' '|| v_location_id);
+END;
+/

@@ -1,0 +1,17 @@
+DECLARE
+    CURSOR cur_departments IS
+        SELECT department_id, department_name
+        FROM departments;
+    CURSOR cur_employees(p_dept_id NUMBER) IS
+        SELECT employee_id, first_name
+        FROM employees
+        WHERE department_id = p_dept_id;
+BEGIN
+    FOR i IN cur_departments LOOP
+        DBMS_OUTPUT.PUT_LINE('Department: ' || i.department_name);
+        FOR j IN cur_employees(i.department_id) LOOP
+            DBMS_OUTPUT.PUT_LINE(j.first_name);
+        END LOOP;
+    END LOOP;
+END;
+/

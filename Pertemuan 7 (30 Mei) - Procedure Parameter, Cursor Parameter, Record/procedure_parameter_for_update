@@ -1,0 +1,7 @@
+CREATE OR REPLACE PROCEDURE edit_gaji2 (p_bonus NUMBER) AS
+BEGIN
+    FOR i IN (SELECT * FROM copy_employees2) LOOP
+        UPDATE copy_employees2 SET gaji = gaji + (gaji*komisi+p_bonus)
+        WHERE id = i.id;
+    END LOOP;
+END;

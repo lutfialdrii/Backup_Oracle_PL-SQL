@@ -1,0 +1,8 @@
+CREATE OR REPLACE PROCEDURE edit_gaji (p_bonus NUMBER) AS
+BEGIN
+    for i in (SELECT * FROM copy_employees) loop
+        UPDATE copy_employees SET salary = salary + (salary*p_bonus/100)
+        WHERE employee_id = i.employee_id;
+    end loop;
+END;
+/

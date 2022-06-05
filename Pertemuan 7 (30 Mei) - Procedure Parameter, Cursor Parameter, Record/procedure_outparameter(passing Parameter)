@@ -1,0 +1,39 @@
+create or replace procedure proout (p_panjang in number, p_lebar in number , p_luas out number, p_keliling out number) as 
+begin 
+	p_luas := p_panjang * p_lebar;
+    p_keliling := 2 * (p_panjang + p_lebar);
+end;
+/
+
+-- ANONYMOUS BLOCK untuk memanggil procedure
+DECLARE
+    luas NUMBER;
+    keliling NUMBER;
+BEGIN
+    PROOUT(10,6,luas, keliling);
+    DBMS_OUTPUT.PUT_LINE('Luas Persegi Panjang = '||luas);
+    DBMS_OUTPUT.PUT_LINE('Keliling Persegi Panjang = '||keliling);
+END;
+/
+
+-- 
+CREATE OR REPLACE PROCEDURE EMP1 (p_id NUMBER, p_name OUT VARCHAR2, p_salary OUT NUMBER) AS
+BEGIN
+    SELECT FNAME, GAJI INTO p_name, p_salary
+    FROM copy_employees2
+    WHERE ID = p_id;
+END;
+/
+
+
+-- 
+
+DECLARE 
+    v_name copy_employees2.fname%TYPE;
+    v_salary copy_employees2.gaji%TYPE;
+BEGIN
+    EMP1(100, v_name, v_salary);
+    DBMS_OUTPUT.PUT_LINE('Nama = '||v_name);
+    DBMS_OUTPUT.PUT_LINE('Gaji = '||v_salary);
+END;
+/

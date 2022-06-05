@@ -1,0 +1,6011 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sen Mar 28 10:51:18 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect as sys dba
+SP2-0306: Invalid option.
+Usage: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM}] [edition=value]]
+where <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> select * from all_users
+  2  ;
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+COBA1                                  86 19-03-2022
+PROCEDURE                              85 19-03-2022
+KOS                                    84 18-01-2022
+UASLUTFI3C2021                         83 03-01-2022
+LUTFI                                  82 03-01-2022
+COBA11                                 78 02-01-2022
+COBAA                                  77 02-01-2022
+MALAMSENIN                             74 02-01-2022
+COBA                                   75 02-01-2022
+PAGI                                   62 13-12-2021
+UTS                                    58 10-11-2021
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+CHINDI                                 57 10-11-2021
+RAJU                                   56 09-11-2021
+EKA                                    55 07-11-2021
+KRS                                    54 06-11-2021
+TUGAS                                  51 03-11-2021
+VIKRI                                  61 11-11-2021
+APEX_040000                            47 29-05-2014
+APEX_PUBLIC_USER                       45 29-05-2014
+FLOWS_FILES                            44 29-05-2014
+HR                                     43 29-05-2014
+MDSYS                                  42 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+XS$NULL                        2147483638 29-05-2014
+MALAM                                  79 02-01-2022
+ANONYMOUS                              35 29-05-2014
+XDB                                    34 29-05-2014
+CTXSYS                                 32 29-05-2014
+APPQOSSYS                              30 29-05-2014
+DBSNMP                                 29 29-05-2014
+ORACLE_OCM                             21 29-05-2014
+DIP                                    14 29-05-2014
+OUTLN                                   9 29-05-2014
+SYSTEM                                  5 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+SYS                                     0 29-05-2014
+
+34 rows selected.
+
+SQL> connect coba1
+Enter password:
+Connected.
+SQL> select * from tab
+  2  ;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+COUNTRIES                      TABLE
+DEPARTMENTS                    TABLE
+D_CDS                          TABLE
+D_CLIENTS                      TABLE
+D_EVENTS                       TABLE
+D_JOB_ASSIGNMENTS              TABLE
+D_PACKAGES                     TABLE
+D_PARTNERS                     TABLE
+D_PLAY_LIST_ITEMS              TABLE
+D_SONGS                        TABLE
+D_THEMES                       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+D_TRACK_LISTINGS               TABLE
+D_TYPES                        TABLE
+D_VENUES                       TABLE
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+F_CUSTOMERS                    TABLE
+F_FOOD_ITEMS                   TABLE
+F_ORDERS                       TABLE
+F_ORDER_LINES                  TABLE
+F_PROMOTIONAL_MENUS            TABLE
+F_REGULAR_MENUS                TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+F_SHIFTS                       TABLE
+F_SHIFT_ASSIGNMENTS            TABLE
+F_STAFFS                       TABLE
+JOBS                           TABLE
+JOB_GRADES                     TABLE
+JOB_HISTORY                    TABLE
+LOCATIONS                      TABLE
+REGIONS                        TABLE
+WF_COUNTRIES                   TABLE
+WF_CURRENCIES                  TABLE
+WF_LANGUAGES                   TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+WF_SPOKEN_LANGUAGES            TABLE
+WF_WORLD_REGIONS               TABLE
+
+35 rows selected.
+
+SQL> DECLARE
+  2  v_counter number(2) :=1;
+  3  jlh number;
+  4  BEGIN
+  5  LOOP
+  6  DBMS_OUTPUT.PUT_LINE('Anak Ayam turun' ||' '|| v_jlh ||' mati' ||v_counter||' tinggal '||(jlh-v_counter));
+  7  v_counter := v_counter +1;
+  8  EXIT WHEN v_counter > 10;
+  9  END LOOP;
+ 10  END
+ 11  /
+END
+  *
+ERROR at line 10:
+ORA-06550: line 10, column 3:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+; <an identifier> <a double-quoted delimited-identifier>
+The symbol ";" was substituted for "end-of-file" to continue.
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) :=1;
+  3     jlh number(2) :=10;
+  4  BEGIN
+  5     LOOP
+  6             DBMS_OUTPUT.PUT_LINE('Anak Ayam turun' ||' '|| v_jlh ||' mati' ||v_counter||' tinggal '||(jlh-v_counter));
+  7             v_counter := v_counter +1;
+  8             EXIT WHEN v_counter > 10;
+  9     END LOOP;
+ 10* END;
+SQL> /
+                DBMS_OUTPUT.PUT_LINE('Anak Ayam turun' ||' '|| v_jlh ||' mati' ||v_counter||' tinggal '||(jlh-v_counter));
+                                                               *
+ERROR at line 6:
+ORA-06550: line 6, column 50:
+PLS-00201: identifier 'V_JLH' must be declared
+ORA-06550: line 6, column 3:
+PL/SQL: Statement ignored
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) :=1;
+  3     jlh number(2) :=10;
+  4  BEGIN
+  5     LOOP
+  6             DBMS_OUTPUT.PUT_LINE('Anak Ayam turun' ||' '|| jlh ||' mati' ||v_counter||' tinggal '||(jlh-v_counter));
+  7             v_counter := v_counter +1;
+  8             EXIT WHEN v_counter > 10;
+  9     END LOOP;
+ 10* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> /
+Anak Ayam turun 10 mati1 tinggal 9
+Anak Ayam turun 10 mati2 tinggal 8
+Anak Ayam turun 10 mati3 tinggal 7
+Anak Ayam turun 10 mati4 tinggal 6
+Anak Ayam turun 10 mati5 tinggal 5
+Anak Ayam turun 10 mati6 tinggal 4
+Anak Ayam turun 10 mati7 tinggal 3
+Anak Ayam turun 10 mati8 tinggal 2
+Anak Ayam turun 10 mati9 tinggal 1
+Anak Ayam turun 10 mati10 tinggal 0
+
+PL/SQL procedure successfully completed.
+
+SQL> desc location
+ERROR:
+ORA-04043: object location does not exist
+
+
+SQL> desc locations
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOCATION_ID                               NOT NULL NUMBER(4)
+ STREET_ADDRESS                                     VARCHAR2(40)
+ POSTAL_CODE                                        VARCHAR2(12)
+ CITY                                      NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                     VARCHAR2(25)
+ COUNTRY_ID                                         CHAR(2)
+
+SQL> select LOCATION_ID, CITY, COUNTRY_ID FROM LOCATIONS;
+
+LOCATION_ID CITY                           CO
+----------- ------------------------------ --
+       1800 Toronto                        CA
+       2500 Oxford                         UK
+       1400 Southlake                      US
+       1500 South San Francisco            US
+       1700 Seattle                        US
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2  BEGIN
+  3     SELECT MIN (location_id)
+  4     INTO v_loc_id
+  5     FROM locations WHERE country_id = 1;
+  6             LOOP
+  7                     INSERT INTO locations (location_id, city, country _id)
+  8                     VALUES ((v_loc_id + v_counter), 'Panam', 5));
+  9*                            v_counter := v_counter + 1;
+ 10  /
+                        INSERT INTO locations (location_id, city, country _id)
+                                                                          *
+ERROR at line 7:
+ORA-06550: line 7, column 54:
+PL/SQL: ORA-00911: invalid character
+ORA-06550: line 7, column 4:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 9, column 33:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+( begin case declare end exit for goto if loop mod null
+pragma raise return select update while with <an identifier>
+<a double-quoted delimited
+
+
+SQL> desc COUNTRIES
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COUNTRY_ID                                NOT NULL CHAR(2)
+ COUNTRY_NAME                                       VARCHAR2(40)
+ REGION_ID                                          NUMBER
+
+SQL> desc locations
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOCATION_ID                               NOT NULL NUMBER(4)
+ STREET_ADDRESS                                     VARCHAR2(40)
+ POSTAL_CODE                                        VARCHAR2(12)
+ CITY                                      NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                     VARCHAR2(25)
+ COUNTRY_ID                                         CHAR(2)
+
+SQL> select country_id from countries
+  2  ;
+
+CO
+--
+CA
+DE
+UK
+US
+
+SQL> select country_id from locations
+  2  ;
+
+CO
+--
+CA
+UK
+US
+US
+US
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select country_id from locations
+SQL> ;
+  1* select country_id from locations
+SQL> /
+
+CO
+--
+CA
+UK
+US
+US
+US
+
+SQL> select region_id from locations
+  2  ;
+select region_id from locations
+       *
+ERROR at line 1:
+ORA-00904: "REGION_ID": invalid identifier
+
+
+SQL> select region_id from countries;
+
+ REGION_ID
+----------
+         2
+         1
+         1
+         2
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> select * from all_users
+  2  ;
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+COBA1                                  86 19-03-2022
+PROCEDURE                              85 19-03-2022
+KOS                                    84 18-01-2022
+UASLUTFI3C2021                         83 03-01-2022
+LUTFI                                  82 03-01-2022
+COBA11                                 78 02-01-2022
+COBAA                                  77 02-01-2022
+MALAMSENIN                             74 02-01-2022
+COBA                                   75 02-01-2022
+PAGI                                   62 13-12-2021
+UTS                                    58 10-11-2021
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+CHINDI                                 57 10-11-2021
+RAJU                                   56 09-11-2021
+EKA                                    55 07-11-2021
+KRS                                    54 06-11-2021
+TUGAS                                  51 03-11-2021
+VIKRI                                  61 11-11-2021
+APEX_040000                            47 29-05-2014
+APEX_PUBLIC_USER                       45 29-05-2014
+FLOWS_FILES                            44 29-05-2014
+HR                                     43 29-05-2014
+MDSYS                                  42 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+XS$NULL                        2147483638 29-05-2014
+MALAM                                  79 02-01-2022
+ANONYMOUS                              35 29-05-2014
+XDB                                    34 29-05-2014
+CTXSYS                                 32 29-05-2014
+APPQOSSYS                              30 29-05-2014
+DBSNMP                                 29 29-05-2014
+ORACLE_OCM                             21 29-05-2014
+DIP                                    14 29-05-2014
+OUTLN                                   9 29-05-2014
+SYSTEM                                  5 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+SYS                                     0 29-05-2014
+
+34 rows selected.
+
+SQL> DROP USER LUTFI CASCADE;
+
+User dropped.
+
+SQL> create user lutfi identified by admin;
+
+User created.
+
+SQL> grant all privilege to lutfi
+  2  ;
+
+Grant succeeded.
+
+SQL> connect lutfo
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect lutfi
+Enter password:
+Connected.
+SQL> @d:/PLSQL_Schema .sql;
+SP2-0310: unable to open file "d:/PLSQL_Schema.sql"
+SQL> show user
+USER is "LUTFI"
+SQL> @d:/schema.sql;
+ALTER TABLE DEPARTMENTS DROP CONSTRAINT "DEPT_MGR_FK"
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_grades
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_history
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE employees
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE jobs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE departments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE locations
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE spoken_languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE currencies
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE countries
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE regions
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE class_assessments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE enrollments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE classes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE courses
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE sections
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE instructors
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE students
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE assessments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE grade_changes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_shift_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_shifts
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_order_lines
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_orders
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_staffs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_food_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_regular_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_promotional_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_customers
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_track_listings
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_play_list_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_songs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_types
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_job_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_partners
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_events
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_venues
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_themes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_packages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_clients
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_cds
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+Enter value for b: g
+old   2: VALUES(94,'Carpe Diem','R & B Inc.','2000')
+new   2: VALUES(94,'Carpe Diem','R g Inc.','2000')
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+View created.
+
+DROP SEQUENCE "DEPARTMENTS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "EMPLOYEES_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "LOCATIONS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+
+Sequence created.
+
+
+Sequence created.
+
+
+Sequence created.
+
+SQL> select * from tab
+  2  ;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+ASSESSMENTS                    TABLE
+CLASSES                        TABLE
+CLASS_ASSESSMENTS              TABLE
+COUNTRIES                      TABLE
+COURSES                        TABLE
+CURRENCIES                     TABLE
+DEPARTMENTS                    TABLE
+D_CDS                          TABLE
+D_CLIENTS                      TABLE
+D_EVENTS                       TABLE
+D_JOB_ASSIGNMENTS              TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+D_PACKAGES                     TABLE
+D_PARTNERS                     TABLE
+D_PLAY_LIST_ITEMS              TABLE
+D_SONGS                        TABLE
+D_THEMES                       TABLE
+D_TRACK_LISTINGS               TABLE
+D_TYPES                        TABLE
+D_VENUES                       TABLE
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+ENROLLMENTS                    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+F_CUSTOMERS                    TABLE
+F_FOOD_ITEMS                   TABLE
+F_ORDERS                       TABLE
+F_ORDER_LINES                  TABLE
+F_PROMOTIONAL_MENUS            TABLE
+F_REGULAR_MENUS                TABLE
+F_SHIFTS                       TABLE
+F_SHIFT_ASSIGNMENTS            TABLE
+F_STAFFS                       TABLE
+GRADE_CHANGES                  TABLE
+INSTRUCTORS                    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+JOBS                           TABLE
+JOB_GRADES                     TABLE
+JOB_HISTORY                    TABLE
+LANGUAGES                      TABLE
+LOCATIONS                      TABLE
+REGIONS                        TABLE
+SECTIONS                       TABLE
+SPOKEN_LANGUAGES               TABLE
+STUDENTS                       TABLE
+
+42 rows selected.
+
+SQL> desc locations
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOCATION_ID                               NOT NULL NUMBER(4)
+ STREET_ADDRESS                                     VARCHAR2(40)
+ POSTAL_CODE                                        VARCHAR2(12)
+ CITY                                      NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                     VARCHAR2(25)
+ COUNTRY_ID                                         NUMBER(4)
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+
+6 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             INSERT INTO locations(location_id,city,country_id)
+ 10             VALUES ((v_loc_id+v_counter),'Pekanbaru', v_counter);
+ 11             v_counter = v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+ 15  /
+                v_counter = v_counter+1;
+                          *
+ERROR at line 11:
+ORA-06550: line 11, column 13:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+:= . ( @ % ;
+The symbol ":= was inserted before "=" to continue.
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             INSERT INTO locations(location_id,city,country_id)
+ 10             VALUES ((v_loc_id+v_counter),'Pekanbaru', v_counter);
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+DECLARE
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (LUTFI.LOC_C_ID_FK) violated - parent key not
+found
+ORA-06512: at line 9
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             INSERT INTO locations(location_id,city,country_id)
+ 10             VALUES ((v_loc_id+v_counter),'Pekanbaru', 7);
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> /
+DECLARE
+*
+ERROR at line 1:
+ORA-00001: unique constraint (LUTFI.LOC_ID_PK) violated
+ORA-06512: at line 9
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             INSERT INTO locations(location_id,city,country_id)
+ 10             VALUES ((v_loc_id+v_counter),'Pekanbaru', 7);
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+DECLARE
+*
+ERROR at line 1:
+ORA-00001: unique constraint (LUTFI.LOC_ID_PK) violated
+ORA-06512: at line 9
+
+
+SQL> SELECT * FROM LOCATIONS;
+
+LOCATION_ID STREET_ADDRESS                           POSTAL_CODE
+----------- ---------------------------------------- ------------
+CITY                           STATE_PROVINCE            COUNTRY_ID
+------------------------------ ------------------------- ----------
+       1800 460 Bloor St. W.                         ON M5S 1X8
+Toronto                        Ontario                            2
+
+       2500 Magdalen Centre, The Oxford Science Park OX9 9ZB
+Oxford                         Oxford                            44
+
+       1400 2014 Jabberwocky Rd                      26192
+Southlake                      Texas                              1
+
+
+LOCATION_ID STREET_ADDRESS                           POSTAL_CODE
+----------- ---------------------------------------- ------------
+CITY                           STATE_PROVINCE            COUNTRY_ID
+------------------------------ ------------------------- ----------
+       1500 2011 Interiors Blvd                      99236
+South San Francisco            California                         1
+
+       1700 2004 Charade Rd                          98199
+Seattle                        Washington                         1
+
+       2100 Av. Rio Branco                           20090-003
+Rio de Janeiro                 Rio de Janeiro                    55
+
+
+LOCATION_ID STREET_ADDRESS                           POSTAL_CODE
+----------- ---------------------------------------- ------------
+CITY                           STATE_PROVINCE            COUNTRY_ID
+------------------------------ ------------------------- ----------
+       1401
+Pekanbaru                                                         7
+
+       1402
+Pekanbaru                                                         7
+
+       1403
+Pekanbaru                                                         7
+
+
+LOCATION_ID STREET_ADDRESS                           POSTAL_CODE
+----------- ---------------------------------------- ------------
+CITY                           STATE_PROVINCE            COUNTRY_ID
+------------------------------ ------------------------- ----------
+       1404
+Pekanbaru                                                         7
+
+       1405
+Pekanbaru                                                         7
+
+
+11 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations(location_id,city,country_id)
+ 10             WHERE location_id = v_loc_id + v_counter;
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 3;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+                DELETE FROM locations(location_id,city,country_id)
+                                     *
+ERROR at line 9:
+ORA-06550: line 9, column 24:
+PL/SQL: ORA-00933: SQL command not properly ended
+ORA-06550: line 9, column 3:
+PL/SQL: SQL Statement ignored
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MIN(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations
+ 10             WHERE location_id = v_loc_id + v_counter;
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 3;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id;
+select location_id, city, country_id
+                                   *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select location_id, city, country_id from locations
+  2  ;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+
+8 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             INSERT INTO locations(location_id,city,country_id)
+ 10             VALUES ((v_loc_id+v_counter),'Medan', 2);
+ 11             v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+ 15  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+       2501 Medan                                   2
+       2502 Medan                                   2
+       2503 Medan                                   2
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       2504 Medan                                   2
+       2505 Medan                                   2
+
+13 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1     DECLARE
+  2        v_counter number(2) := 1;
+  3        v_loc_id locations.location_id%TYPE;
+  4     BEGIN
+  5        SELECT MAX(location_id)
+  6        INTO v_loc_id
+  7        FROM locations;
+  8        LOOP
+  9                INSERT INTO locations(location_id,city,country_id)
+ 10                VALUES ((v_loc_id+v_counter),'Tampan', 3);
+ 11                v_counter := v_counter+1;
+ 12        EXIT WHEN v_counter > 5;
+ 13        END LOOP;
+ 14    END;
+ 15*    /
+SQL> /
+   /
+   *
+ERROR at line 15:
+ORA-06550: line 15, column 4:
+PLS-00103: Encountered the symbol "/" The symbol "/" was ignored.
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8  LOOP
+  9     INSERT INTO locations(location_id,city,country_id)
+ 10     VALUES ((v_loc_id+v_counter),'Tampan', 3);
+ 11     v_counter := v_counter+1;
+ 12     EXIT WHEN v_counter > 5;
+ 13     END LOOP;
+ 14* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+       2501 Medan                                   2
+       2502 Medan                                   2
+       2503 Medan                                   2
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       2504 Medan                                   2
+       2505 Medan                                   2
+       2506 Tampan                                  3
+       2507 Tampan                                  3
+       2508 Tampan                                  3
+       2509 Tampan                                  3
+       2510 Tampan                                  3
+
+18 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations WHERE
+ 10             location_id = (v_loc_id + v_counter);
+ 11             v_counter := v_counter+1;
+ 12     IF v_counter > 3 THEN EXIT;
+ 13     END IF;
+ 14     END LOOP;
+ 15* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 1;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations WHERE
+ 10             location_id = (v_loc_id + v_counter);
+ 11             v_counter := v_counter+1;
+ 12     IF v_counter > 3 THEN EXIT;
+ 13     END IF;
+ 14     END LOOP;
+ 15* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+       2501 Medan                                   2
+       2502 Medan                                   2
+       2503 Medan                                   2
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       2504 Medan                                   2
+       2505 Medan                                   2
+       2506 Tampan                                  3
+       2507 Tampan                                  3
+       2508 Tampan                                  3
+       2509 Tampan                                  3
+       2510 Tampan                                  3
+
+18 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 2;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations WHERE
+ 10             location_id = (v_loc_id + v_counter);
+ 11             v_counter := v_counter+1;
+ 12     IF v_counter > 3 THEN EXIT;
+ 13     END IF;
+ 14     END LOOP;
+ 15* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 2;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations WHERE
+ 10             location_id = (v_loc_id + v_counter);
+ 11             v_counter := v_counter+1;
+ 12     IF v_counter > 3 THEN EXIT;
+ 13     END IF;
+ 14     END LOOP;
+ 15* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+       2501 Medan                                   2
+       2502 Medan                                   2
+       2503 Medan                                   2
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       2504 Medan                                   2
+       2505 Medan                                   2
+       2506 Tampan                                  3
+       2507 Tampan                                  3
+       2508 Tampan                                  3
+       2509 Tampan                                  3
+       2510 Tampan                                  3
+
+18 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2     v_counter number(2) := 2;
+  3     v_loc_id locations.location_id%TYPE;
+  4  BEGIN
+  5     SELECT MAX(location_id)
+  6     INTO v_loc_id
+  7     FROM locations;
+  8     LOOP
+  9             DELETE FROM locations WHERE
+ 10             location_id = (v_loc_id - v_counter);
+ 11             v_counter := v_counter+1;
+ 12     IF v_counter > 3 THEN EXIT;
+ 13     END IF;
+ 14     END LOOP;
+ 15* END;
+SQL> /
+
+PL/SQL procedure successfully completed.
+
+SQL> select location_id, city, country_id from locations;
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       1800 Toronto                                 2
+       2500 Oxford                                 44
+       1400 Southlake                               1
+       1500 South San Francisco                     1
+       1700 Seattle                                 1
+       2100 Rio de Janeiro                         55
+       1404 Pekanbaru                               7
+       1405 Pekanbaru                               7
+       2501 Medan                                   2
+       2502 Medan                                   2
+       2503 Medan                                   2
+
+LOCATION_ID CITY                           COUNTRY_ID
+----------- ------------------------------ ----------
+       2504 Medan                                   2
+       2505 Medan                                   2
+       2506 Tampan                                  3
+       2509 Tampan                                  3
+       2510 Tampan                                  3
+
+16 rows selected.
+
+SQL>

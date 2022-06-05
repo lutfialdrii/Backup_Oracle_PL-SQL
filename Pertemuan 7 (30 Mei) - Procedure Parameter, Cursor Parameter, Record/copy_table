@@ -1,0 +1,1 @@
+create table copy_employees1 as (select employee_id, first_name fname, nvl (commission_pct,0) komisi from employees);
