@@ -1,0 +1,44 @@
+
+-- Declarasi Function dengan parameter
+CREATE OR REPLACE FUNCTION pph (p_gaji NUMBER)
+RETURN NUMBER IS
+     v_gaji NUMBER;
+BEGIN
+    v_gaji := p_gaji * 0.1;
+    RETURN v_gaji;
+END;
+/
+
+-- cara memanggil function
+
+DECLARE
+    pajak NUMBER;
+BEGIN
+    pajak := ppn(1000000);
+    DBMS_OUTPUT.PUT_LINE('Pajak Penghasilan sebesar' ||' '|| pajak);
+END;
+/
+
+CREATE OR REPLACE FUNCTION pph_karyawan (p_id employees.employee_id%TYPE)
+RETURN NUMBER IS
+    v_gaji employees.salary%TYPE;
+    v_pajak NUMBER;
+BEGIN
+    SELECT salary INTO v_gaji FROM employees WHERE employee_id = p_id;
+    v_pajak := v_gaji * 0.1;
+    RETURN v_pajak;
+END;
+/
+
+-- cara memanggil FUNCTION
+
+DECLARE
+    pajak NUMBER;
+BEGIN
+    pajak := pph_karyawan(231);
+    DBMS_OUTPUT.PUT_LINE('Pajak Penghasilan sebesar' ||' '|| pajak);
+END;
+/
+
+-- Function dapat dipanggil pada SELECT
+SELECT employee_id,salary,pph_karyawan(employee_id) FROM employees;

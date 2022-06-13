@@ -1,0 +1,1030 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sen Jun 6 10:15:23 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect sys as sysdab
+SP2-0306: Invalid option.
+Usage: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM}] [edition=value]]
+where <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+SQL> select * all_users
+  2  ;
+select * all_users
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select * from all_users
+  2  ;
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+PERBAIKANUTSLUTFI                      94 01-06-2022
+VIDEO                                  93 22-05-2022
+UTS4CLUTFIALDRIPERMANA                 92 12-05-2022
+UTS4CLUTFI                             91 12-05-2022
+TUGAS1                                 90 28-04-2022
+UTS4C2                                 89 26-04-2022
+UTS4C                                  88 26-04-2022
+COBA1                                  86 19-03-2022
+PROCEDURE                              85 19-03-2022
+KOS                                    84 18-01-2022
+UASLUTFI3C2021                         83 03-01-2022
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+LUTFI                                  87 28-03-2022
+COBA11                                 78 02-01-2022
+COBAA                                  77 02-01-2022
+MALAMSENIN                             74 02-01-2022
+COBA                                   75 02-01-2022
+PAGI                                   62 13-12-2021
+UTS                                    58 10-11-2021
+CHINDI                                 57 10-11-2021
+RAJU                                   56 09-11-2021
+EKA                                    55 07-11-2021
+KRS                                    54 06-11-2021
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+TUGAS                                  51 03-11-2021
+VIKRI                                  61 11-11-2021
+APEX_040000                            47 29-05-2014
+APEX_PUBLIC_USER                       45 29-05-2014
+FLOWS_FILES                            44 29-05-2014
+HR                                     43 29-05-2014
+MDSYS                                  42 29-05-2014
+XS$NULL                        2147483638 29-05-2014
+MALAM                                  79 02-01-2022
+ANONYMOUS                              35 29-05-2014
+XDB                                    34 29-05-2014
+
+USERNAME                          USER_ID CREATED
+------------------------------ ---------- ----------
+CTXSYS                                 32 29-05-2014
+APPQOSSYS                              30 29-05-2014
+DBSNMP                                 29 29-05-2014
+ORACLE_OCM                             21 29-05-2014
+DIP                                    14 29-05-2014
+OUTLN                                   9 29-05-2014
+SYSTEM                                  5 29-05-2014
+SYS                                     0 29-05-2014
+
+41 rows selected.
+
+SQL> connect video
+Enter password:
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+ASSESSMENTS                    TABLE
+CLASSES                        TABLE
+CLASS_ASSESSMENTS              TABLE
+COPY_EMPLOYEES                 TABLE
+COPY_EMPLOYEES1                TABLE
+COPY_EMPLOYEES2                TABLE
+COUNTRIES                      TABLE
+COURSES                        TABLE
+CURRENCIES                     TABLE
+DEPARTMENTS                    TABLE
+D_CDS                          TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+D_CLIENTS                      TABLE
+D_EVENTS                       TABLE
+D_JOB_ASSIGNMENTS              TABLE
+D_PACKAGES                     TABLE
+D_PARTNERS                     TABLE
+D_PLAY_LIST_ITEMS              TABLE
+D_SONGS                        TABLE
+D_THEMES                       TABLE
+D_TRACK_LISTINGS               TABLE
+D_TYPES                        TABLE
+D_VENUES                       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+ENROLLMENTS                    TABLE
+F_CUSTOMERS                    TABLE
+F_FOOD_ITEMS                   TABLE
+F_ORDERS                       TABLE
+F_ORDER_LINES                  TABLE
+F_PROMOTIONAL_MENUS            TABLE
+F_REGULAR_MENUS                TABLE
+F_SHIFTS                       TABLE
+F_SHIFT_ASSIGNMENTS            TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+F_STAFFS                       TABLE
+GRADE_CHANGES                  TABLE
+INSTRUCTORS                    TABLE
+JOBS                           TABLE
+JOB_GRADES                     TABLE
+JOB_HISTORY                    TABLE
+LANGUAGES                      TABLE
+LOCATIONS                      TABLE
+REGIONS                        TABLE
+SECTIONS                       TABLE
+SPOKEN_LANGUAGES               TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENTS                       TABLE
+
+45 rows selected.
+
+SQL> CREATE OR REPLACE FUNCTION ppn (p_gaji NUMBER)
+  2  RETURN NUMBER IS
+  3       v_gaji NUMBER;
+  4  BEGIN
+  5      v_gaji := p_gaji * 0,1;
+  6      RETURN v_gaji;
+  7  END;
+  8  /
+
+Warning: Function created with compilation errors.
+
+SQL> show error;
+Errors for FUNCTION PPN:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+5/25     PLS-00103: Encountered the symbol "," when expecting one of the
+         following:
+         * & = - + ; < / > at in is mod remainder not rem
+         <an exponent (**)> <> or != or ~= >= <= <> and or like like2
+         like4 likec between || member submultiset
+
+SQL> CREATE OR REPLACE FUNCTION ppn (p_gaji NUMBER)
+  2  RETURN NUMBER IS
+  3       v_gaji NUMBER;
+  4  BEGIN
+  5      v_gaji := p_gaji * 0.1;
+  6      RETURN v_gaji;
+  7  END;
+  8  /
+
+Function created.
+
+SQL> ^V
+SP2-0042: unknown command "▬" - rest of line ignored.
+SQL> DECLARE
+  2      pajak NUMBER;
+  3  BEGIN
+  4      pajak := ppn(1000000);
+  5      DBMS_OUTPUT.PUT_LINE(pajak);
+  6  END;
+  7  /
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> DECLARE
+  2      pajak NUMBER;
+  3  BEGIN
+  4      pajak := ppn(1000000);
+  5      DBMS_OUTPUT.PUT_LINE(pajak);
+  6  END;
+  7  /
+100000
+
+PL/SQL procedure successfully completed.
+
+SQL> DECLARE
+  2      pajak NUMBER;
+  3  BEGIN
+  4      pajak := ppn(1000000);
+  5      DBMS_OUTPUT.PUT_LINE(Pajak Penghasilan sebesar ||' '|| pajak);
+  6  END;
+  7  /
+    DBMS_OUTPUT.PUT_LINE(Pajak Penghasilan sebesar ||' '|| pajak);
+                               *
+ERROR at line 5:
+ORA-06550: line 5, column 32:
+PLS-00103: Encountered the symbol "PENGHASILAN" when expecting one of the
+following:
+. ( ) , * @ % & = - + < / > at in is mod remainder not rem =>
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2
+like4 likec as between from using || multiset member
+submultiset
+The symbol ". was inserted before "PENGHASILAN" to continue.
+
+
+SQL> DECLARE
+  2      pajak NUMBER;
+  3  BEGIN
+  4      pajak := ppn(1000000);
+  5      DBMS_OUTPUT.PUT_LINE('Pajak Penghasilan sebesar' ||' '|| pajak);
+  6  END;
+  7  /
+Pajak Penghasilan sebesar 100000
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from employeesl
+  2  ;
+select * from employeesl
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from employees;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        100 Steven               King
+SKING                     515.123.4567         17-06-2002 AD_PRES         24000
+                                     90
+
+        101 Neena                Kochhar
+NKOCHHAR                  515.123.4568         21-09-2004 AD_VP           17000
+                      100            90
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        102 Lex                  De Haan
+LDEHAAN                   515.123.4569         13-01-2008 AD_VP           17000
+                      100            90
+
+        200 Jennifer             Whalen
+JWHALEN                   515.123.4444         17-09-2002 AD_ASST          4400
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      101            10
+
+        205 Shelley              Higgins
+SHIGGINS                  515.123.8080         07-06-2009 AC_MGR          12000
+                      101           110
+
+        206 William              Gietz
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+WGIETZ                    515.123.8181         07-06-2009 AC_ACCOUNT       8300
+                      205           110
+
+        149 Eleni                Zlotkey
+EZLOTKEY                  011.44.1344.429018   29-01-2015 SA_MAN          10500
+            ,2        100            80 1500
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        174 Ellen                Abel
+EABEL                     011.44.1644.429267   11-05-2011 SA_REP          11000
+            ,3        149            80 1700
+
+        176 Jonathon             Taylor
+JTAYLOR                   011.44.1644.429265   24-03-2013 SA_REP           8600
+            ,2        149            80 1250
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        178 Kimberely            Grant
+KGRANT                    011.44.1644.429263   24-05-2014 SA_REP           7000
+           ,15        149
+
+        124 Kevin                Mourgos
+KMOURGOS                  650.123.5234         16-11-2014 ST_MAN           5800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      100            50
+
+        141 Trenna               Rajs
+TRAJS                     650.121.8009         17-10-2010 ST_CLERK         3500
+                      124            50
+
+        142 Curtis               Davies
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+CDAVIES                   650.121.2994         29-01-2012 ST_CLERK         3100
+                      124            50
+
+        143 Randall              Matos
+RMATOS                    650.121.2874         15-03-2013 ST_CLERK         2600
+                      124            50
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        144 Peter                Vargas
+PVARGAS                   650.121.2004         09-07-2013 ST_CLERK         2500
+                      124            50
+
+        103 Alexander            Hunold
+AHUNOLD                   590.423.4567         03-01-2005 IT_PROG          9000
+                      102            60
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        104 Bruce                Ernst
+BERNST                    590.423.4568         21-05-2006 IT_PROG          6000
+                      103            60
+
+        107 Diana                Lorentz
+DLORENTZ                  590.423.5567         07-02-2014 IT_PROG          4200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      103            60
+
+        201 Michael              Hartstein
+MHARTSTE                  515.123.5555         17-02-2011 MK_MAN          13000
+                      100            20
+
+        202 Pat                  Fay
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+PFAY                      603.123.6666         17-08-2013 MK_REP           3900
+                      201            20
+
+        207 Sophia               Barbosa Souza
+SBARBOSASOUZA             55.24.6280.6935      12-03-2009 SR_SA_REP        9500
+            ,2        149            85
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        208 Diego                Silva Pinto
+DSILVAPINTO               55.24.8806.9837      25-10-2009 SA_REP           7500
+           ,15        149            85
+
+        209 Sarah                Alves Rocha
+SALVESROCHA               55.24.9381.2160      06-02-2011 SA_REP           7300
+           ,15        149            85
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        210 Lucas                Almeida Castro
+ALMEIDACASTRO             55.24.6514-5378      16-08-2012 SA_REP           7300
+            ,2        149            85
+
+        212 Nick                 Hooper
+NHOOPER                   011.44.1886 6663     01-09-2012 SR_SA_REP        9600
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+            ,2        149            80
+
+        215 Donna                Steiner
+DSTEINER                  843.452.5959         02-11-2004 SR_MK_REP        8600
+                      201            20
+
+        216 George               Bell
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+GBELL                     724.647.4299         01-04-2014 SR_ST_CLRK       3500
+                      124            50
+
+        217 Lisa                 TAYLOR
+LTAYLOR                   417.730.8202         09-02-2013 MK_REP           4000
+                      201            20
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        219 Michael              Stocks
+MSTOCKS                   662.314.6844         16-12-2015 MK_REP           3700
+                      201            20
+
+        220 Tiffany              Heiden
+THEIDEN                   413.251.0684         06-07-2015 ST_CLERK         2600
+                      124            50
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        222 Chen                 Li
+CLI                       423.817.1481         29-08-2008 IT_PROG          8000
+                      103            60
+
+        223 Alain                Fontaine
+AFONTAINE                 601.424.8816         18-11-2013 IT_PROG          7800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      103            60
+
+        224 Matthias             Reinhard
+MREINHARD                 315.496.2466         25-07-2007 AC_ACCOUNT       8100
+                      205           110
+
+        225 Katia                Hernandez
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+KHERNANDEZ                214.350.4575         13-06-2011 AD_ASST          4300
+                      101            10
+
+        226 Guido                Ricci
+GRICCI                    305.269.9415         17-05-2015 AD_ASST          4100
+                      101            10
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        227 Mizuto               Saikawa
+MSAIKAWA                  541.831.2444         01-02-2012 AD_ASST          4400
+                      101            10
+
+        228 Nabil                Safwah
+NSAFWAH                   720.863.0485         06-01-1997 MK_REP           5000
+                      201            20
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        231 Jelena               Duric
+JDURIC                    505.514.1583         11-05-2009 AC_ACCOUNT       5400
+                      205           110
+
+        232 Jennifer             Loermans
+JLOERMANS                 213.447.9053         14-04-2013 AC_ACCOUNT       5200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      205           110
+
+        235 Alice                Newton
+ANEWTON                   314.248.7709         16-12-2015 MK_REP           4900
+                      201            20
+
+
+40 rows selected.
+
+SQL> CREATE OR REPLACE FUNCTION ppb_karyawan (p_id employees.employee_id%TYPE)
+  2  RETURN NUMBER IS
+  3      v_gaji employees.salary%TYPE;
+  4  BEGIN
+  5      SELECT salary INTO v_gaji FROM employees WHERE employee_id = p_id;
+  6      v_pajak := v_gaji * 0.1;
+  7      RETURN v_gaji;
+  8  END;
+  9  /
+
+Warning: Function created with compilation errors.
+
+SQL> SHOW ERROR
+Errors for FUNCTION PPB_KARYAWAN:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+6/5      PL/SQL: Statement ignored
+6/5      PLS-00201: identifier 'V_PAJAK' must be declared
+SQL> CREATE OR REPLACE FUNCTION ppb_karyawan (p_id employees.employee_id%TYPE)
+  2  RETURN NUMBER IS
+  3      v_gaji employees.salary%TYPE;
+  4      v_pajak NUMBER;
+  5  BEGIN
+  6      SELECT salary INTO v_gaji FROM employees WHERE employee_id = p_id;
+  7      v_pajak := v_gaji * 0.1;
+  8      RETURN v_gaji;
+  9  END;
+ 10  /
+
+Function created.
+
+SQL> select * from employees;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        100 Steven               King
+SKING                     515.123.4567         17-06-2002 AD_PRES         24000
+                                     90
+
+        101 Neena                Kochhar
+NKOCHHAR                  515.123.4568         21-09-2004 AD_VP           17000
+                      100            90
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        102 Lex                  De Haan
+LDEHAAN                   515.123.4569         13-01-2008 AD_VP           17000
+                      100            90
+
+        200 Jennifer             Whalen
+JWHALEN                   515.123.4444         17-09-2002 AD_ASST          4400
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      101            10
+
+        205 Shelley              Higgins
+SHIGGINS                  515.123.8080         07-06-2009 AC_MGR          12000
+                      101           110
+
+        206 William              Gietz
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+WGIETZ                    515.123.8181         07-06-2009 AC_ACCOUNT       8300
+                      205           110
+
+        149 Eleni                Zlotkey
+EZLOTKEY                  011.44.1344.429018   29-01-2015 SA_MAN          10500
+            ,2        100            80 1500
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        174 Ellen                Abel
+EABEL                     011.44.1644.429267   11-05-2011 SA_REP          11000
+            ,3        149            80 1700
+
+        176 Jonathon             Taylor
+JTAYLOR                   011.44.1644.429265   24-03-2013 SA_REP           8600
+            ,2        149            80 1250
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        178 Kimberely            Grant
+KGRANT                    011.44.1644.429263   24-05-2014 SA_REP           7000
+           ,15        149
+
+        124 Kevin                Mourgos
+KMOURGOS                  650.123.5234         16-11-2014 ST_MAN           5800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      100            50
+
+        141 Trenna               Rajs
+TRAJS                     650.121.8009         17-10-2010 ST_CLERK         3500
+                      124            50
+
+        142 Curtis               Davies
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+CDAVIES                   650.121.2994         29-01-2012 ST_CLERK         3100
+                      124            50
+
+        143 Randall              Matos
+RMATOS                    650.121.2874         15-03-2013 ST_CLERK         2600
+                      124            50
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        144 Peter                Vargas
+PVARGAS                   650.121.2004         09-07-2013 ST_CLERK         2500
+                      124            50
+
+        103 Alexander            Hunold
+AHUNOLD                   590.423.4567         03-01-2005 IT_PROG          9000
+                      102            60
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        104 Bruce                Ernst
+BERNST                    590.423.4568         21-05-2006 IT_PROG          6000
+                      103            60
+
+        107 Diana                Lorentz
+DLORENTZ                  590.423.5567         07-02-2014 IT_PROG          4200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      103            60
+
+        201 Michael              Hartstein
+MHARTSTE                  515.123.5555         17-02-2011 MK_MAN          13000
+                      100            20
+
+        202 Pat                  Fay
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+PFAY                      603.123.6666         17-08-2013 MK_REP           3900
+                      201            20
+
+        207 Sophia               Barbosa Souza
+SBARBOSASOUZA             55.24.6280.6935      12-03-2009 SR_SA_REP        9500
+            ,2        149            85
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        208 Diego                Silva Pinto
+DSILVAPINTO               55.24.8806.9837      25-10-2009 SA_REP           7500
+           ,15        149            85
+
+        209 Sarah                Alves Rocha
+SALVESROCHA               55.24.9381.2160      06-02-2011 SA_REP           7300
+           ,15        149            85
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        210 Lucas                Almeida Castro
+ALMEIDACASTRO             55.24.6514-5378      16-08-2012 SA_REP           7300
+            ,2        149            85
+
+        212 Nick                 Hooper
+NHOOPER                   011.44.1886 6663     01-09-2012 SR_SA_REP        9600
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+            ,2        149            80
+
+        215 Donna                Steiner
+DSTEINER                  843.452.5959         02-11-2004 SR_MK_REP        8600
+                      201            20
+
+        216 George               Bell
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+GBELL                     724.647.4299         01-04-2014 SR_ST_CLRK       3500
+                      124            50
+
+        217 Lisa                 TAYLOR
+LTAYLOR                   417.730.8202         09-02-2013 MK_REP           4000
+                      201            20
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        219 Michael              Stocks
+MSTOCKS                   662.314.6844         16-12-2015 MK_REP           3700
+                      201            20
+
+        220 Tiffany              Heiden
+THEIDEN                   413.251.0684         06-07-2015 ST_CLERK         2600
+                      124            50
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        222 Chen                 Li
+CLI                       423.817.1481         29-08-2008 IT_PROG          8000
+                      103            60
+
+        223 Alain                Fontaine
+AFONTAINE                 601.424.8816         18-11-2013 IT_PROG          7800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      103            60
+
+        224 Matthias             Reinhard
+MREINHARD                 315.496.2466         25-07-2007 AC_ACCOUNT       8100
+                      205           110
+
+        225 Katia                Hernandez
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+KHERNANDEZ                214.350.4575         13-06-2011 AD_ASST          4300
+                      101            10
+
+        226 Guido                Ricci
+GRICCI                    305.269.9415         17-05-2015 AD_ASST          4100
+                      101            10
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+        227 Mizuto               Saikawa
+MSAIKAWA                  541.831.2444         01-02-2012 AD_ASST          4400
+                      101            10
+
+        228 Nabil                Safwah
+NSAFWAH                   720.863.0485         06-01-1997 MK_REP           5000
+                      201            20
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+
+        231 Jelena               Duric
+JDURIC                    505.514.1583         11-05-2009 AC_ACCOUNT       5400
+                      205           110
+
+        232 Jennifer             Loermans
+JLOERMANS                 213.447.9053         14-04-2013 AC_ACCOUNT       5200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE  JOB_ID         SALARY
+------------------------- -------------------- ---------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID BONUS
+-------------- ---------- ------------- -----
+                      205           110
+
+        235 Alice                Newton
+ANEWTON                   314.248.7709         16-12-2015 MK_REP           4900
+                      201            20
+
+
+40 rows selected.
+
+SQL> DECLARE
+  2      pajak NUMBER;
+  3  BEGIN
+  4      pajak := ppb_karyawan(231);
+  5      DBMS_OUTPUT.PUT_LINE('Pajak Penghasilan sebesar' ||' '|| pajak);
+  6  END;
+  7  /
+Pajak Penghasilan sebesar 5400
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE FUNCTION pph_karyawan (p_id employees.employee_id%TYPE)
+  2  RETURN NUMBER IS
+  3      v_gaji employees.salary%TYPE;
+  4      v_pajak NUMBER;
+  5  BEGIN
+  6      SELECT salary INTO v_gaji FROM employees WHERE employee_id = p_id;
+  7      v_pajak := v_gaji * 0.1;
+  8      RETURN v_pajak;
+  9  END;
+ 10  /
+
+Function created.
+
+SQL> SELECT employee_id,salary,pph_karyawan(employee_id) FROM employees;
+
+EMPLOYEE_ID     SALARY PPH_KARYAWAN(EMPLOYEE_ID)
+----------- ---------- -------------------------
+        100      24000                      2400
+        101      17000                      1700
+        102      17000                      1700
+        200       4400                       440
+        205      12000                      1200
+        206       8300                       830
+        149      10500                      1050
+        174      11000                      1100
+        176       8600                       860
+        178       7000                       700
+        124       5800                       580
+
+EMPLOYEE_ID     SALARY PPH_KARYAWAN(EMPLOYEE_ID)
+----------- ---------- -------------------------
+        141       3500                       350
+        142       3100                       310
+        143       2600                       260
+        144       2500                       250
+        103       9000                       900
+        104       6000                       600
+        107       4200                       420
+        201      13000                      1300
+        202       3900                       390
+        207       9500                       950
+        208       7500                       750
+
+EMPLOYEE_ID     SALARY PPH_KARYAWAN(EMPLOYEE_ID)
+----------- ---------- -------------------------
+        209       7300                       730
+        210       7300                       730
+        212       9600                       960
+        215       8600                       860
+        216       3500                       350
+        217       4000                       400
+        219       3700                       370
+        220       2600                       260
+        222       8000                       800
+        223       7800                       780
+        224       8100                       810
+
+EMPLOYEE_ID     SALARY PPH_KARYAWAN(EMPLOYEE_ID)
+----------- ---------- -------------------------
+        225       4300                       430
+        226       4100                       410
+        227       4400                       440
+        228       5000                       500
+        231       5400                       540
+        232       5200                       520
+        235       4900                       490
+
+40 rows selected.
+
+SQL> CREATE OR REPLACE FUNCTION luas_lingkaran(p_jari_jari NUMBER)
+  2  RETURN FLOAT IS
+  3  v_phi NUMBER := 3.14;
+  4  v_luas NUMBER := v_phi * p_jari_jari * p_jari_jari;
+  5  BEGIN
+  6  RETURN v_luas;
+  7  END;
+  8  /
+
+Function created.
+
+SQL> BEGIN
+  2      DBMS_OUTPUT.PUT_LINE('Luas Lingkaran = ' || luas_lingkaran(7));
+  3  END;
+  4  /
+Luas Lingkaran = 153,86
+
+PL/SQL procedure successfully completed.
+
+SQL> DESC DUAL
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DUMMY                                              VARCHAR2(1)
+
+SQL> SET LINESIZE 300;
+SQL>
