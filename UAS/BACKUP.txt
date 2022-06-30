@@ -1,0 +1,6131 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sen Jun 27 10:51:10 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> CONNECT SYS AS SYSDBA
+Enter password:
+Connected.
+SQL> CREATE USER UASS D\\
+  2  ;
+CREATE USER UASS D\\
+                  *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> CREATE USER UASSBD_LUTFI IDENTIFIED BY ADMIN
+  2  ;
+
+User created.
+
+SQL> GRANT ALL PRIVILEGE TO UASSBD_LUTFI;
+
+Grant succeeded.
+
+SQL> connect UASSBD_LUTFI
+Enter password:
+Connected.
+SQL> SHOW USER
+USER is "UASSBD_LUTFI"
+SQL> @D:/schema.sql
+ALTER TABLE DEPARTMENTS DROP CONSTRAINT "DEPT_MGR_FK"
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_grades
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE job_history
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE employees
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE jobs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE departments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE locations
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE spoken_languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE languages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE currencies
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE countries
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE regions
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE class_assessments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE enrollments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE classes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE courses
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE sections
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE instructors
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE students
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE assessments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE grade_changes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_shift_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_shifts
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_order_lines
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_orders
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_staffs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_food_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_regular_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_promotional_menus
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE f_customers
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_track_listings
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_play_list_items
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_songs
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_types
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_job_assignments
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_partners
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_events
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_venues
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_themes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_packages
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_clients
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+DROP TABLE d_cds
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Index created.
+
+
+Index created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+Enter value for b: l
+old   2: VALUES(94,'Carpe Diem','R & B Inc.','2000')
+new   2: VALUES(94,'Carpe Diem','R l Inc.','2000')
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+View created.
+
+DROP SEQUENCE "DEPARTMENTS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "EMPLOYEES_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+DROP SEQUENCE "LOCATIONS_SEQ"
+              *
+ERROR at line 1:
+ORA-02289: sequence does not exist
+
+
+
+Sequence created.
+
+
+Sequence created.
+
+
+Sequence created.
+
+SQL> SELECT * FROM TAB
+  2  ;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+ASSESSMENTS                    TABLE
+CLASSES                        TABLE
+CLASS_ASSESSMENTS              TABLE
+COUNTRIES                      TABLE
+COURSES                        TABLE
+CURRENCIES                     TABLE
+DEPARTMENTS                    TABLE
+D_CDS                          TABLE
+D_CLIENTS                      TABLE
+D_EVENTS                       TABLE
+D_JOB_ASSIGNMENTS              TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+D_PACKAGES                     TABLE
+D_PARTNERS                     TABLE
+D_PLAY_LIST_ITEMS              TABLE
+D_SONGS                        TABLE
+D_THEMES                       TABLE
+D_TRACK_LISTINGS               TABLE
+D_TYPES                        TABLE
+D_VENUES                       TABLE
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+ENROLLMENTS                    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+F_CUSTOMERS                    TABLE
+F_FOOD_ITEMS                   TABLE
+F_ORDERS                       TABLE
+F_ORDER_LINES                  TABLE
+F_PROMOTIONAL_MENUS            TABLE
+F_REGULAR_MENUS                TABLE
+F_SHIFTS                       TABLE
+F_SHIFT_ASSIGNMENTS            TABLE
+F_STAFFS                       TABLE
+GRADE_CHANGES                  TABLE
+INSTRUCTORS                    TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+JOBS                           TABLE
+JOB_GRADES                     TABLE
+JOB_HISTORY                    TABLE
+LANGUAGES                      TABLE
+LOCATIONS                      TABLE
+REGIONS                        TABLE
+SECTIONS                       TABLE
+SPOKEN_LANGUAGES               TABLE
+STUDENTS                       TABLE
+
+42 rows selected.
+
+SQL> DESC EMPLOYEES;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+ BONUS                                              VARCHAR2(5)
+
+SQL> show user
+USER is "UASSBD_LUTFI"
+SQL> CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, NVL(e.COMMISSION_PCT komisi, 0.1), FROM employees e, departments d WHERE e.department_id = d.department_id;
+CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, NVL(e.COMMISSION_PCT komisi, 0.1), FROM employees e, departments d WHERE e.department_id = d.department_id
+                                                                                                                                       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments
+
+
+SQL> desc departments
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPARTMENT_ID                             NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                           NOT NULL VARCHAR2(30)
+ MANAGER_ID                                         NUMBER(6)
+ LOCATION_ID                                        NUMBER(4)
+
+SQL> CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, NVL(e.COMMISSION_PCT komisi, 0.1)
+  2  FROM employees e, departments d
+  3  WHERE e.department_id = d.department_id;
+CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, NVL(e.COMMISSION_PCT komisi, 0.1)
+                                                                                                                                       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments
+
+
+SQL> CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, NVL(e.COMMISSION_PCT, 0.1) komisi
+  2  WHERE e.department_id = d.department_id
+  3  FROM employees e, departments d;
+WHERE e.department_id = d.department_id
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> CREATE TABLE C_ULUTFI AS SELECT e.employee_id id, e.first_name nama, e.department_id id_dep, d.department_name namadep, e.salary gaji, nvl (e.COMMISSION_PCT, 0.1) komisi
+  2  FROM employees e, departments d
+  3  WHERE e.department_id = d.department_id;
+
+Table created.
+
+SQL> select * from c_ulutfi
+  2  ;
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       200 Jennifer                     10 Administration
+      4400         ,1
+
+       225 Katia                        10 Administration
+      4300         ,1
+
+       226 Guido                        10 Administration
+      4100         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       227 Mizuto                       10 Administration
+      4400         ,1
+
+       201 Michael                      20 Marketing
+     13000         ,1
+
+       202 Pat                          20 Marketing
+      3900         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       215 Donna                        20 Marketing
+      8600         ,1
+
+       217 Lisa                         20 Marketing
+      4000         ,1
+
+       219 Michael                      20 Marketing
+      3700         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       228 Nabil                        20 Marketing
+      5000         ,1
+
+       235 Alice                        20 Marketing
+      4900         ,1
+
+       124 Kevin                        50 Shipping
+      5800         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       141 Trenna                       50 Shipping
+      3500         ,1
+
+       142 Curtis                       50 Shipping
+      3100         ,1
+
+       143 Randall                      50 Shipping
+      2600         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       144 Peter                        50 Shipping
+      2500         ,1
+
+       216 George                       50 Shipping
+      3500         ,1
+
+       220 Tiffany                      50 Shipping
+      2600         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       103 Alexander                    60 IT
+      9000         ,1
+
+       104 Bruce                        60 IT
+      6000         ,1
+
+       107 Diana                        60 IT
+      4200         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       222 Chen                         60 IT
+      8000         ,1
+
+       223 Alain                        60 IT
+      7800         ,1
+
+       149 Eleni                        80 Sales - Europe
+     10500         ,2
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       174 Ellen                        80 Sales - Europe
+     11000         ,3
+
+       176 Jonathon                     80 Sales - Europe
+      8600         ,2
+
+       212 Nick                         80 Sales - Europe
+      9600         ,2
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       207 Sophia                       85 Sales - Americas
+      9500         ,2
+
+       208 Diego                        85 Sales - Americas
+      7500        ,15
+
+       209 Sarah                        85 Sales - Americas
+      7300        ,15
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       210 Lucas                        85 Sales - Americas
+      7300         ,2
+
+       100 Steven                       90 Executive
+     24000         ,1
+
+       101 Neena                        90 Executive
+     17000         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       102 Lex                          90 Executive
+     17000         ,1
+
+       205 Shelley                     110 Accounting
+     12000         ,1
+
+       206 William                     110 Accounting
+      8300         ,1
+
+
+        ID NAMA                     ID_DEP NAMADEP
+---------- -------------------- ---------- ------------------------------
+      GAJI     KOMISI
+---------- ----------
+       224 Matthias                    110 Accounting
+      8100         ,1
+
+       231 Jelena                      110 Accounting
+      5400         ,1
+
+       232 Jennifer                    110 Accounting
+      5200         ,1
+
+
+39 rows selected.
+
+SQL> set linesize 300;
+SQL> select * from c_ulutfi;
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI     KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       200 Jennifer                     10 Administration                       4400         ,1
+       225 Katia                        10 Administration                       4300         ,1
+       226 Guido                        10 Administration                       4100         ,1
+       227 Mizuto                       10 Administration                       4400         ,1
+       201 Michael                      20 Marketing                           13000         ,1
+       202 Pat                          20 Marketing                            3900         ,1
+       215 Donna                        20 Marketing                            8600         ,1
+       217 Lisa                         20 Marketing                            4000         ,1
+       219 Michael                      20 Marketing                            3700         ,1
+       228 Nabil                        20 Marketing                            5000         ,1
+       235 Alice                        20 Marketing                            4900         ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI     KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       124 Kevin                        50 Shipping                             5800         ,1
+       141 Trenna                       50 Shipping                             3500         ,1
+       142 Curtis                       50 Shipping                             3100         ,1
+       143 Randall                      50 Shipping                             2600         ,1
+       144 Peter                        50 Shipping                             2500         ,1
+       216 George                       50 Shipping                             3500         ,1
+       220 Tiffany                      50 Shipping                             2600         ,1
+       103 Alexander                    60 IT                                   9000         ,1
+       104 Bruce                        60 IT                                   6000         ,1
+       107 Diana                        60 IT                                   4200         ,1
+       222 Chen                         60 IT                                   8000         ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI     KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       223 Alain                        60 IT                                   7800         ,1
+       149 Eleni                        80 Sales - Europe                      10500         ,2
+       174 Ellen                        80 Sales - Europe                      11000         ,3
+       176 Jonathon                     80 Sales - Europe                       8600         ,2
+       212 Nick                         80 Sales - Europe                       9600         ,2
+       207 Sophia                       85 Sales - Americas                     9500         ,2
+       208 Diego                        85 Sales - Americas                     7500        ,15
+       209 Sarah                        85 Sales - Americas                     7300        ,15
+       210 Lucas                        85 Sales - Americas                     7300         ,2
+       100 Steven                       90 Executive                           24000         ,1
+       101 Neena                        90 Executive                           17000         ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI     KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       102 Lex                          90 Executive                           17000         ,1
+       205 Shelley                     110 Accounting                          12000         ,1
+       206 William                     110 Accounting                           8300         ,1
+       224 Matthias                    110 Accounting                           8100         ,1
+       231 Jelena                      110 Accounting                           5400         ,1
+       232 Jennifer                    110 Accounting                           5200         ,1
+
+39 rows selected.
+
+SQL> CREATE OR REPLACE PROCEDURE PROC_LUTFI(P_KOMISI, P_DEP_ID)
+  2      rec_data%ROWTYPE;
+  3      CURSOR cur_data IS
+  4      SELECT * FROM C_ULUTFI
+  5      WHERE komisi = P_KOMISI
+  6      AND id_dep = P_DEP_ID;
+  7  BEGIN
+  8      OPEN cur_data;
+  9      LOOP
+ 10          FETCH cur_data INTO rec_data;
+ 11          EXIT WHEN cur_data%NOTFOUND;
+ 12          DBMS_OUTPUT.PUT_LINE('ID KARYAWAN ' ||' '|| rec_data.id ||' Nama : '|| rec_data.nama ||' ID_DEPARTMENT :' || rec_data.id_dep||' GAJI :' ||rec_data.gaji);
+ 13      END LOOP;
+ 14      CLOSE cur_data;
+ 15  END;
+ 16  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> show error
+Errors for PROCEDURE PROC_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+1/30     PLS-00103: Encountered the symbol "," when expecting one of the
+         following:
+         in out <an identifier> <a double-quoted delimited-identifier>
+         ... long double ref char time timestamp interval date binary
+         national character nchar
+
+SQL> CREATE OR REPLACE PROCEDURE PROC_LUTFI(P_KOMISI, P_DEP_ID)
+  2      CURSOR cur_data IS
+  3      SELECT * FROM C_ULUTFI
+  4      WHERE komisi = P_KOMISI
+  5      AND id_dep = P_DEP_ID;
+  6      rec_data cur_data%ROWTYPE;
+  7  BEGIN
+  8      OPEN cur_data;
+  9      LOOP
+ 10          FETCH cur_data INTO rec_data;
+ 11          EXIT WHEN cur_data%NOTFOUND;
+ 12          DBMS_OUTPUT.PUT_LINE('ID KARYAWAN ' ||' '|| rec_data.id ||' Nama : '|| rec_data.nama ||' ID_DEPARTMENT :' || rec_data.id_dep||' GAJI :' ||rec_data.gaji);
+ 13      END LOOP;
+ 14      CLOSE cur_data;
+ 15  END;
+ 16  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> show error
+Errors for PROCEDURE PROC_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+1/30     PLS-00103: Encountered the symbol "," when expecting one of the
+         following:
+         in out <an identifier> <a double-quoted delimited-identifier>
+         ... long double ref char time timestamp interval date binary
+         national character nchar
+
+SQL> desc c_ulutfi
+ Name
+
+               Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------------------------------------------------------
+ ID
+
+                        NUMBER(6)
+ NAMA
+
+                        VARCHAR2(20)
+ ID_DEP
+
+                        NUMBER(4)
+ NAMADEP
+
+               NOT NULL VARCHAR2(30)
+ GAJI
+
+                        NUMBER(8,2)
+ KOMISI
+
+                        NUMBER
+
+SQL> CREATE OR REPLACE PROCEDURE PROC_LUTFI(P_KOMISI NUMBER, P_DEP_ID NUMBER)
+  2      CURSOR cur_data IS
+  3      SELECT * FROM C_ULUTFI
+  4      WHERE komisi = P_KOMISI
+  5      AND id_dep = P_DEP_ID;
+  6      rec_data cur_data%ROWTYPE;
+  7  BEGIN
+  8      OPEN cur_data;
+  9      LOOP
+ 10          FETCH cur_data INTO rec_data;
+ 11          EXIT WHEN cur_data%NOTFOUND;
+ 12          DBMS_OUTPUT.PUT_LINE('ID KARYAWAN ' ||' '|| rec_data.id ||' Nama : '|| rec_data.nama ||' ID_DEPARTMENT :' || rec_data.id_dep||' GAJI :' ||rec_data.gaji);
+ 13      END LOOP;
+ 14      CLOSE cur_data;
+ 15  END;
+ 16  /
+
+Warning: Procedure created with compilation errors.
+
+SQL> SHOW ERROR
+Errors for PROCEDURE PROC_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+2/5      PLS-00103: Encountered the symbol "CURSOR" when expecting one of
+         the following:
+         ; is with authid as cluster order using external
+         deterministic parallel_enable pipelined result_cache
+
+SQL> CREATE OR REPLACE PROCEDURE PROC_LUTFI(P_KOMISI NUMBER, P_DEP_ID NUMBER) AS
+  2      CURSOR cur_data IS
+  3      SELECT * FROM C_ULUTFI
+  4      WHERE komisi = P_KOMISI
+  5      AND id_dep = P_DEP_ID;
+  6      rec_data cur_data%ROWTYPE;
+  7  BEGIN
+  8      OPEN cur_data;
+  9      LOOP
+ 10          FETCH cur_data INTO rec_data;
+ 11          EXIT WHEN cur_data%NOTFOUND;
+ 12          DBMS_OUTPUT.PUT_LINE('ID KARYAWAN ' ||' '|| rec_data.id ||' Nama : '|| rec_data.nama ||' ID_DEPARTMENT :' || rec_data.id_dep||' GAJI :' ||rec_data.gaji);
+ 13      END LOOP;
+ 14      CLOSE cur_data;
+ 15  END;
+ 16  /
+
+Procedure created.
+
+SQL> EXECUTE PROC_LUTFI(0.1,20)
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON
+SQL> ;
+  1  CREATE OR REPLACE PROCEDURE PROC_LUTFI(P_KOMISI NUMBER, P_DEP_ID NUMBER) AS
+  2      CURSOR cur_data IS
+  3      SELECT * FROM C_ULUTFI
+  4      WHERE komisi = P_KOMISI
+  5      AND id_dep = P_DEP_ID;
+  6      rec_data cur_data%ROWTYPE;
+  7  BEGIN
+  8      OPEN cur_data;
+  9      LOOP
+ 10          FETCH cur_data INTO rec_data;
+ 11          EXIT WHEN cur_data%NOTFOUND;
+ 12          DBMS_OUTPUT.PUT_LINE('ID KARYAWAN ' ||' '|| rec_data.id ||' Nama : '|| rec_data.nama ||' ID_DEPARTMENT :' || rec_data.id_dep||' GAJI :' ||rec_data.gaji);
+ 13      END LOOP;
+ 14      CLOSE cur_data;
+ 15* END;
+SQL> /
+
+Procedure created.
+
+SQL> SET SERVEROUTPUT ON
+SQL> EXECUTE PROC_LUTFI(0.1,20)
+ID KARYAWAN  201 Nama : Michael ID_DEPARTMENT :20 GAJI :13000
+ID KARYAWAN  202 Nama : Pat ID_DEPARTMENT :20 GAJI :3900
+ID KARYAWAN  215 Nama : Donna ID_DEPARTMENT :20 GAJI :8600
+ID KARYAWAN  217 Nama : Lisa ID_DEPARTMENT :20 GAJI :4000
+ID KARYAWAN  219 Nama : Michael ID_DEPARTMENT :20 GAJI :3700
+ID KARYAWAN  228 Nama : Nabil ID_DEPARTMENT :20 GAJI :5000
+ID KARYAWAN  235 Nama : Alice ID_DEPARTMENT :20 GAJI :4900
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from c_ulutfi;
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI        KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       200 Jennifer                     10 Administration                       4400            ,1
+       225 Katia                        10 Administration                       4300            ,1
+       226 Guido                        10 Administration                       4100            ,1
+       227 Mizuto                       10 Administration                       4400            ,1
+       201 Michael                      20 Marketing                           13000            ,1
+       202 Pat                          20 Marketing                            3900            ,1
+       215 Donna                        20 Marketing                            8600            ,1
+       217 Lisa                         20 Marketing                            4000            ,1
+       219 Michael                      20 Marketing                            3700            ,1
+       228 Nabil                        20 Marketing                            5000            ,1
+       235 Alice                        20 Marketing                            4900            ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI        KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       124 Kevin                        50 Shipping                             5800            ,1
+       141 Trenna                       50 Shipping                             3500            ,1
+       142 Curtis                       50 Shipping                             3100            ,1
+       143 Randall                      50 Shipping                             2600            ,1
+       144 Peter                        50 Shipping                             2500            ,1
+       216 George                       50 Shipping                             3500            ,1
+       220 Tiffany                      50 Shipping                             2600            ,1
+       103 Alexander                    60 IT                                   9000            ,1
+       104 Bruce                        60 IT                                   6000            ,1
+       107 Diana                        60 IT                                   4200            ,1
+       222 Chen                         60 IT                                   8000            ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI        KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       223 Alain                        60 IT                                   7800            ,1
+       149 Eleni                        80 Sales - Europe                      10500            ,2
+       174 Ellen                        80 Sales - Europe                      11000            ,3
+       176 Jonathon                     80 Sales - Europe                       8600            ,2
+       212 Nick                         80 Sales - Europe                       9600            ,2
+       207 Sophia                       85 Sales - Americas                     9500            ,2
+       208 Diego                        85 Sales - Americas                     7500           ,15
+       209 Sarah                        85 Sales - Americas                     7300           ,15
+       210 Lucas                        85 Sales - Americas                     7300            ,2
+       100 Steven                       90 Executive                           24000            ,1
+       101 Neena                        90 Executive                           17000            ,1
+
+        ID NAMA                     ID_DEP NAMADEP                              GAJI        KOMISI
+---------- -------------------- ---------- ------------------------------ ---------- ----------
+       102 Lex                          90 Executive                           17000            ,1
+       205 Shelley                     110 Accounting                          12000            ,1
+       206 William                     110 Accounting                           8300            ,1
+       224 Matthias                    110 Accounting                           8100            ,1
+       231 Jelena                      110 Accounting                           5400            ,1
+       232 Jennifer                    110 Accounting                           5200            ,1
+
+39 rows selected.
+
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id C_ULUTFI.ID%TYPE)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_pajak C_ULUTFI.pajak%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      IF komisi > 0.1 THEN
+  8      v_pajak := p_gaji * 0.1;
+  9      RETURN v_pajak;
+ 10      ELSE
+ 11      v_pajak := p_gaji * 0.5;
+ 12      RETURN v_pajak;
+ 13  END;
+ 14  /
+
+Warning: Function created with compilation errors.
+
+SQL> show error
+Errors for FUNCTION PAJAK_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+13/4     PLS-00103: Encountered the symbol ";" when expecting one of the
+         following:
+         if
+
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id C_ULUTFI.ID%TYPE)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_pajak C_ULUTFI.pajak%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      IF komisi > 0.1 THEN
+  8      v_pajak := p_gaji * 0.1;
+  9      RETURN v_pajak;
+ 10      ELSE
+ 11      v_pajak := p_gaji * 0.5;
+ 12      RETURN v_pajak;
+ 13      END IF;
+ 14  END;
+ 15  /
+
+Warning: Function created with compilation errors.
+
+SQL> SHOW ERROR
+Errors for FUNCTION PAJAK_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+4/13     PL/SQL: Item ignored
+4/22     PLS-00302: component 'PAJAK' must be declared
+7/5      PL/SQL: Statement ignored
+7/8      PLS-00201: identifier 'KOMISI' must be declared
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id C_ULUTFI.ID%TYPE)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_gaji C_ULUTFI.gaji%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      SELECT gaji INTO v_gaji FROM C_ULUTFI WHERE ID = p_id;
+  8      IF komisi > 0.1 THEN
+  9      v_pajak := p_gaji * 0.1;
+ 10      RETURN v_pajak;
+ 11      ELSE
+ 12      v_pajak := p_gaji * 0.5;
+ 13      RETURN v_pajak;
+ 14      END IF;
+ 15  END;
+ 16  /
+
+Warning: Function created with compilation errors.
+
+SQL> show error
+Errors for FUNCTION PAJAK_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+8/5      PL/SQL: Statement ignored
+8/8      PLS-00201: identifier 'KOMISI' must be declared
+SQL> desc c_ulutfi
+ Name                                                                                                                                                                        Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------------------------------------------------------
+ ID                                                                                                                                                                                   NUMBER(6)
+ NAMA                                                                                                                                                                                 VARCHAR2(20)
+ ID_DEP                                                                                                                                                                               NUMBER(4)
+ NAMADEP                                                                                                                                                                     NOT NULL VARCHAR2(30)
+ GAJI                                                                                                                                                                                 NUMBER(8,2)
+ KOMISI                                                                                                                                                                               NUMBER
+
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id C_ULUTFI.ID%TYPE)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_gaji C_ULUTFI.gaji%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      SELECT gaji, komisi INTO v_gaji, v_komisi FROM C_ULUTFI WHERE ID = p_id;
+  8      IF v_komisi > 0.1 THEN
+  9      v_pajak := p_gaji * 0.1;
+ 10      RETURN v_pajak;
+ 11      ELSE
+ 12      v_pajak := p_gaji * 0.5;
+ 13      RETURN v_pajak;
+ 14      END IF;
+ 15  END;
+ 16  /
+
+Warning: Function created with compilation errors.
+
+SQL> show error
+Errors for FUNCTION PAJAK_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+9/5      PL/SQL: Statement ignored
+9/16     PLS-00201: identifier 'P_GAJI' must be declared
+12/5     PL/SQL: Statement ignored
+12/16    PLS-00201: identifier 'P_GAJI' must be declared
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id NUMBER)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_gaji C_ULUTFI.gaji%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      SELECT gaji, komisi INTO v_gaji, v_komisi FROM C_ULUTFI WHERE ID = p_id;
+  8      IF v_komisi > 0.1 THEN
+  9      v_pajak := p_gaji * 0.1;
+ 10      RETURN v_pajak;
+ 11      ELSE
+ 12      v_pajak := p_gaji * 0.5;
+ 13      RETURN v_pajak;
+ 14      END IF;
+ 15  END;
+ 16  /
+
+Warning: Function created with compilation errors.
+
+SQL> SHOW ERROR
+Errors for FUNCTION PAJAK_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+9/5      PL/SQL: Statement ignored
+9/16     PLS-00201: identifier 'P_GAJI' must be declared
+12/5     PL/SQL: Statement ignored
+12/16    PLS-00201: identifier 'P_GAJI' must be declared
+SQL> CREATE OR REPLACE FUNCTION pajak_lutfi (p_id NUMBER)
+  2  RETURN NUMBER IS
+  3      v_komisi C_ULUTFI.komisi%TYPE;
+  4      v_gaji C_ULUTFI.gaji%TYPE;
+  5      v_pajak NUMBER;
+  6  BEGIN
+  7      SELECT gaji, komisi INTO v_gaji, v_komisi FROM C_ULUTFI WHERE ID = p_id;
+  8      IF v_komisi > 0.1 THEN
+  9      v_pajak := v_gaji * 0.1;
+ 10      RETURN v_pajak;
+ 11      ELSE
+ 12      v_pajak := v_gaji * 0.5;
+ 13      RETURN v_pajak;
+ 14      END IF;
+ 15  END;
+ 16  /
+
+Function created.
+
+SQL> select pajak_lutfi(id) from c_ulutfi;
+
+PAJAK_LUTFI(ID)
+---------------
+           2200
+           2150
+           2050
+           2200
+           6500
+           1950
+           4300
+           2000
+           1850
+           2500
+           2450
+
+PAJAK_LUTFI(ID)
+---------------
+           2900
+           1750
+           1550
+           1300
+           1250
+           1750
+           1300
+           4500
+           3000
+           2100
+           4000
+
+PAJAK_LUTFI(ID)
+---------------
+           3900
+           1050
+           1100
+            860
+            960
+            950
+            750
+            730
+            730
+          12000
+           8500
+
+PAJAK_LUTFI(ID)
+---------------
+           8500
+           6000
+           4150
+           4050
+           2700
+           2600
+
+39 rows selected.
+
+SQL> select id,nama,gaji,  pajak_lutfi(id),komisi from c_ulutfi;
+
+        ID NAMA                       GAJI PAJAK_LUTFI(ID)     KOMISI
+---------- -------------------- ---------- --------------- ----------
+       200 Jennifer                   4400            2200         ,1
+       225 Katia                      4300            2150         ,1
+       226 Guido                      4100            2050         ,1
+       227 Mizuto                     4400            2200         ,1
+       201 Michael                   13000            6500         ,1
+       202 Pat                        3900            1950         ,1
+       215 Donna                      8600            4300         ,1
+       217 Lisa                       4000            2000         ,1
+       219 Michael                    3700            1850         ,1
+       228 Nabil                      5000            2500         ,1
+       235 Alice                      4900            2450         ,1
+
+        ID NAMA                       GAJI PAJAK_LUTFI(ID)     KOMISI
+---------- -------------------- ---------- --------------- ----------
+       124 Kevin                      5800            2900         ,1
+       141 Trenna                     3500            1750         ,1
+       142 Curtis                     3100            1550         ,1
+       143 Randall                    2600            1300         ,1
+       144 Peter                      2500            1250         ,1
+       216 George                     3500            1750         ,1
+       220 Tiffany                    2600            1300         ,1
+       103 Alexander                  9000            4500         ,1
+       104 Bruce                      6000            3000         ,1
+       107 Diana                      4200            2100         ,1
+       222 Chen                       8000            4000         ,1
+
+        ID NAMA                       GAJI PAJAK_LUTFI(ID)     KOMISI
+---------- -------------------- ---------- --------------- ----------
+       223 Alain                      7800            3900         ,1
+       149 Eleni                     10500            1050         ,2
+       174 Ellen                     11000            1100         ,3
+       176 Jonathon                   8600             860         ,2
+       212 Nick                       9600             960         ,2
+       207 Sophia                     9500             950         ,2
+       208 Diego                      7500             750        ,15
+       209 Sarah                      7300             730        ,15
+       210 Lucas                      7300             730         ,2
+       100 Steven                    24000           12000         ,1
+       101 Neena                     17000            8500         ,1
+
+        ID NAMA                       GAJI PAJAK_LUTFI(ID)     KOMISI
+---------- -------------------- ---------- --------------- ----------
+       102 Lex                       17000            8500         ,1
+       205 Shelley                   12000            6000         ,1
+       206 William                    8300            4150         ,1
+       224 Matthias                   8100            4050         ,1
+       231 Jelena                     5400            2700         ,1
+       232 Jennifer                   5200            2600         ,1
+
+39 rows selected.
+
+SQL> CREATE TABLE LOG_LUTFI (waktu TIMESTAMP, ID VARCHAR2(20),keterangan VARCHAR2(50), PRIMARY KEY (waktu));
+
+Table created.
+
+SQL> DESC LOG_LUTFI
+ Name                                                                                                                                                                        Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------------------------------------------------------
+ WAKTU                                                                                                                                                                       NOT NULL TIMESTAMP(6)
+ ID                                                                                                                                                                                   VARCHAR2(20)
+ KETERANGAN                                                                                                                                                                           VARCHAR2(50)
+
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI AFTER INSERT ON region
+  2  BEGIN
+  3      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,use,'Insert Data di Region');
+  4  END;
+  5  /
+CREATE OR REPLACE TRIGGER TRIG_LUTFI AFTER INSERT ON region
+                                                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> desc regions
+ Name                                                                                                                                                                        Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------------------------------------------------------
+ REGION_ID                                                                                                                                                                   NOT NULL NUMBER(3)
+ REGION_NAME                                                                                                                                                                          VARCHAR2(35)
+
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI AFTER INSERT ON regions
+  2  BEGIN
+  3      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,use,'Insert Data di Region');
+  4  END;
+  5  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER TRIG_LUTFI:
+
+LINE/COL ERROR
+-------- -----------------------------------------------------------------
+2/5      PL/SQL: SQL Statement ignored
+2/65     PL/SQL: ORA-00984: column not allowed here
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI AFTER INSERT ON regions
+  2  BEGIN
+  3      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,user,'Insert Data di Region');
+  4  END;
+  5  /
+
+Trigger created.
+
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI2 AFTER update ON region
+  2  BEGIN
+  3      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,user,'Update Data di Region');
+  4  END;
+  5  /
+CREATE OR REPLACE TRIGGER TRIG_LUTFI2 AFTER update ON region
+                                                      *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI2 AFTER update ON regions
+  2  BEGIN
+  3      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,user,'Update Data di Region');
+  4  END;
+  5  /
+
+Trigger created.
+
+SQL> desc regions
+ Name                                                                                                                                                                        Null?    Type
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------------------------------------------------------
+ REGION_ID                                                                                                                                                                   NOT NULL NUMBER(3)
+ REGION_NAME                                                                                                                                                                          VARCHAR2(35)
+
+SQL> insert into regions values (190,' lutfi');
+
+1 row created.
+
+SQL> update regions set region_name = lutfialdi where region_id = 190;
+update regions set region_name = lutfialdi where region_id = 190
+                                 *
+ERROR at line 1:
+ORA-00904: "LUTFIALDI": invalid identifier
+
+
+SQL> update regions set region_name = 'lutfialdi' where region_id = 190;
+
+1 row updated.
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+SQL> insert into regions values (890, 'lutfiiii');
+
+1 row created.
+
+SQL> update regions set region_name = 'lutfialadi' where region_id = 890;
+
+1 row updated.
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.29.22,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.29.38,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+SQL> CREATE OR REPLACE TRIGGER TRIG_LUTFI3
+  2  IF AFTER update ON regions THEN
+  3  BEGIN
+  4      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,user,'Update Data di Region');
+  5  END;
+  6  ELSIF AFTER INSERT ON region THEN
+  7  BEGIN
+  8      INSERT INTO LOG_LUTFI (waktu,id,keterangan) VALUES (sysdate,user,'insert Data di Region');
+  9  END;
+ 10  END IF;
+ 11  END;
+ 12  /
+IF AFTER update ON regions THEN
+*
+ERROR at line 2:
+ORA-04071: missing BEFORE, AFTER or INSTEAD OF keyword
+
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.29.22,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.29.38,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+SQL> SELECT * FROM REGIONS;
+
+ REGION_ID REGION_NAME
+---------- -----------------------------------
+        14 Eastern Africa
+        17 Middle Africa
+        15 Northern Africa
+        18 Southern Africa
+        11 Western Africa
+        29 Caribbean
+        13 Central America
+         5 South America
+        21 North America
+       143 Central Asia
+        30 Eastern Asia
+
+ REGION_ID REGION_NAME
+---------- -----------------------------------
+        34 Southern Asia
+        35 South-Eastern Asia
+       145 Western Asia
+       151 Eastern Europe
+       154 Northern Europe
+        39 Southern Europe
+       155 Western Europe
+         9 Oceania
+       190 lutfialdi
+       890 lutfialadi
+
+21 rows selected.
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.29.22,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.29.38,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+SQL> INSERT INTO REGIONS VALUES (70, 'PANAM');
+
+1 row created.
+
+SQL> UPDATE REGIONS SET REGION_NAME = 'garuda sakti' where id = 70;
+UPDATE REGIONS SET REGION_NAME = 'garuda sakti' where id = 70
+                                                      *
+ERROR at line 1:
+ORA-00904: "ID": invalid identifier
+
+
+SQL> UPDATE REGIONS SET REGION_NAME = 'garuda sakti' where region_id = 70;
+
+1 row updated.
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.29.22,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.29.38,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.37.40,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.38.24,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+6 rows selected.
+
+SQL> select * from region;
+select * from region
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from regions;
+
+ REGION_ID REGION_NAME
+---------- -----------------------------------
+        14 Eastern Africa
+        17 Middle Africa
+        15 Northern Africa
+        18 Southern Africa
+        11 Western Africa
+        29 Caribbean
+        13 Central America
+         5 South America
+        21 North America
+       143 Central Asia
+        30 Eastern Asia
+
+ REGION_ID REGION_NAME
+---------- -----------------------------------
+        34 Southern Asia
+        35 South-Eastern Asia
+       145 Western Asia
+       151 Eastern Europe
+       154 Northern Europe
+        39 Southern Europe
+       155 Western Europe
+         9 Oceania
+       190 lutfialdi
+       890 lutfialadi
+        70 garuda sakti
+
+22 rows selected.
+
+SQL> select * from log_lutfi;
+
+WAKTU                                                                       ID                   KETERANGAN
+--------------------------------------------------------------------------- -------------------- --------------------------------------------------
+27-06-2022 12.26.19,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.27.31,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.29.22,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.29.38,000000                                                  UASSBD_LUTFI         Update Data di Region
+27-06-2022 12.37.40,000000                                                  UASSBD_LUTFI         Insert Data di Region
+27-06-2022 12.38.24,000000                                                  UASSBD_LUTFI         Update Data di Region
+
+6 rows selected.
+
+SQL>
